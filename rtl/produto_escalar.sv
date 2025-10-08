@@ -4,29 +4,19 @@ module produto_escalar (
     input  logic         clk_i,
     input  logic         rst_n,   // ativo baixo
     // entradas (32-bit cada)
-    input  logic [31:0]  a0,
-    input  logic [31:0]  a1,
-    input  logic [31:0]  a2,
-    input  logic [31:0]  a3,
-    input  logic [31:0]  a4,
-    input  logic [31:0]  a5,
-    input  logic [31:0]  a6,
-    input  logic [31:0]  a7,
-    input  logic [31:0]  b0,
-    input  logic [31:0]  b1,
-    input  logic [31:0]  b2,
-    input  logic [31:0]  b3,
-    input  logic [31:0]  b4,
-    input  logic [31:0]  b5,
-    input  logic [31:0]  b6,
-    input  logic [31:0]  b7,
+    input  logic [31:0]  a0, a1, a2, a3, a4, a5, a6, a7,
+    input  logic [31:0]  b0, b1, b2, b3, b4, b5, b6, b7,
     input  logic         iniciar,
     // saídas
     output logic         concluido,
     output logic [63:0]  resultado
 );
 
-    typedef enum logic [1:0] { PARADO = 2'd0, CALCULANDO = 2'd1, FEITO = 2'd2 } estado_t;
+    typedef enum logic [1:0] {
+        PARADO = 2'd0, 
+        CALCULANDO = 2'd1, 
+        FEITO = 2'd2 } estado_t;
+    
     estado_t estado, proximo_estado;
 
     // registradores
@@ -37,6 +27,7 @@ module produto_escalar (
     // multiplicandos pipeline (registrados para evitar caminhos combinacionais longos)
     logic signed [31:0] aa [0:7];
     logic signed [31:0] bb [0:7];
+    logic signed [63:0] produto;
 
     // desempacotar entradas em arrays (combinacional)
     always_comb begin
@@ -46,7 +37,7 @@ module produto_escalar (
         bb[4] = b4; bb[5] = b5; bb[6] = b6; bb[7] = b7;
     end
 
-    // lógica sequencial
+    // lógica sequencial-registradores
     always_ff @(posedge clk_i or negedge rst_n) begin
         if (!rst_n) begin
             estado <= PARADO;
@@ -61,12 +52,13 @@ module produto_escalar (
         end
     end
 
-    // próxima-estado + datapath combinacional
+    // logica combinacional
     always_comb begin
         proximo_estado = estado;
         acumulador_prox = acumulador;
         indice_prox   = indice;
         concluido_prox  = concluido;
+        produto = 64'd0;
 
         case (estado)
             PARADO: begin
@@ -80,29 +72,30 @@ module produto_escalar (
 
             CALCULANDO: begin
                 // multiplicação com extensão de sinal para 64 bits
-                logic signed [63:0] produto;
                 produto = $signed(aa[indice]) * $signed(bb[indice]);
                 acumulador_prox = acumulador + produto;
-                indice_prox = indice + 1;
+                indice_prox = indice + 4'd1;
+                
                 if (indice == 4'd7) begin
                     proximo_estado = FEITO;
+                    concluido_prox = 1'b1;
                 end
             end
 
             FEITO: begin
-                concluido_prox = 1'b1;
-                acumulador_prox = acumulador; // mantém
-                indice_prox = indice;
-                // permanecer em FEITO até novo start
+                // aguarda iniciar ser baixado para voltar ao inicio
                 if (!iniciar) begin
                     proximo_estado = PARADO;
                     concluido_prox = 1'b0;
                 end
             end
 
-            default: proximo_estado = PARADO;
+            default: begin
+                proximo_estado = PARADO;
+            end
         endcase
     end
 
     assign resultado = acumulador;
+
 endmodule
