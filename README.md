@@ -122,6 +122,10 @@ build/colorlight_i5/gateware/colorlight_i5.bit
 Para programar a FPGA Colorlight i5 com o bitstream gerado:
 
 ```bash
+which openFPGALoader #para descobrir o caminho
+```
+
+```bash
 /caminho/do/openFPGALoader -b colorlight-i5 build/colorlight_i5/gateware/colorlight_i5.bit
 ```
 
@@ -134,10 +138,14 @@ Para programar a FPGA Colorlight i5 com o bitstream gerado:
 Com a FPGA já configurada com o bitstream, compile e embarque o firmware LiteX:
 
 ```bash
-make -C firmware
-litex_term /dev/ttyACM0 --kernel ../firmware/main.bin
+cd firmware/
+make clean
+make
+litex_term /dev/ttyACM0 --kernel main.bin
 ```
 (O caminho  `/dev/ttyACM0` deve apontar para o dispositivo serial (porta de comunicação) que o Linux cria)
+
+dentro do terminal: litex> utilize o comando: `reboot` para inicializar com seu firmware
 
 Durante a execução, o firmware:
 1. Envia os valores de `A` e `B` para o acelerador;
