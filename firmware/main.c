@@ -171,7 +171,7 @@ static void calc_produto_escalar(void)
     }
     printf(" Concluído!\n");
 
-    // ✅ CORREÇÃO: LEITURA E CONVERSÃO CORRETA
+    // LEITURA E CONVERSÃO CORRETA
     uint32_t resultado_raw = produto_escalar_resultado_read();
     int32_t resultado_signed = (int32_t)resultado_raw;  // Conversão para signed
     
