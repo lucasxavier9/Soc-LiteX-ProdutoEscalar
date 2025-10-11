@@ -153,3 +153,12 @@ Durante a execução, o firmware:
 3. Aguarda o sinal `concluido`;
 4. Lê e exibe o resultado do produto escalar;
 5. Repete o cálculo em software para validação cruzada.
+
+## Demonstração do SoC LiteX com Acelerador de Produto Escalar
+
+Abaixo está um GIF mostrando o funcionamento do SoC LiteX com o acelerador de produto escalar em ação.  
+O terminal demonstra a execução de cálculos vetoriais diretamente na FPGA, mostrando o resultado final corretamente.
+
+<p align="center">
+  <img src="gif/SoC-myriscV.gif" alt="Demonstração do terminal">
+</p>
