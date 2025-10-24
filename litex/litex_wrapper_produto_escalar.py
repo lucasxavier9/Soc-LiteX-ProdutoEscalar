@@ -77,12 +77,6 @@ class ProdutoEscalar(Module, AutoCSR):
             b_sigs[7].eq(self.vetor_b7.storage),
         ]
 
-        # **CORREÇÃO CRÍTICA: Reset correto**
-        # LiteX usa reset ATIVO ALTO, mas seu módulo espera ATIVO BAIXO
-        # Precisamos inverter o sinal
-        rst_n_sig = Signal()
-        self.comb += rst_n_sig.eq(~ResetSignal())
-
         # Instância do módulo SystemVerilog
         self.specials += Instance("produto_escalar",
             i_clk_i     = ClockSignal(),
