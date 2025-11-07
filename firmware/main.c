@@ -9,11 +9,17 @@
 
 // DECLARAÇÕES DAS FUNÇÕES
 static void calc_produto_escalar(void);
-static void toggle_led(void);
 static void reboot(void);
 static void help(void);
 static void prompt(void);
+static void debug_csr(void);
 
+
+#ifdef CSR_PRODUTO_ESCALAR_VETOR_A0_ADDR
+#define PRODUTO_ESCALAR_AVAILABLE 1
+#else
+#define PRODUTO_ESCALAR_AVAILABLE 0
+#endif
 
 static char *readstr(void)
 {
@@ -70,18 +76,18 @@ static char *get_token(char **str)
 
 static void prompt(void)
 {
-    printf("RUNTIME>");
+    printf("\nRUNTIME> ");
 }
 
 static void help(void)
 {
-    puts("Available commands:");
-    puts("help                            - this command");
-    puts("reboot                          - reboot CPU");
-    puts("led                             - led test");
-    puts("produto_escalar                 - test produto_escalar");
-    puts("debug_csr                       - debug dos registradores");
-
+    puts("=========================================================");
+    puts("|              Comandos disponíveis:                     |");
+    puts("|  help                            - Mostra commands     |");
+    puts("|  reboot                          - Reboot CPU          |");
+    puts("|  produto_escalar                 - Faz produto_escalar |");
+    puts("|  debug_csr                       - Debug registradores |");
+    puts("=========================================================");
 }
 
 static void reboot(void)
@@ -89,16 +95,14 @@ static void reboot(void)
     ctrl_reset_write(1);
 }
 
-static void toggle_led(void)
-{
-    int i;
-    printf("Invertendo LED...\n");
-    i = leds_out_read();
-    leds_out_write(!i);
-}
-
 static void calc_produto_escalar(void)
 {
+#if !PRODUTO_ESCALAR_AVAILABLE
+    printf("ERRO: Módulo produto_escalar não encontrado no SoC!\n");
+    printf("Execute 'debug_csr' para verificar os módulos disponíveis.\n");
+    return;
+#endif
+
     int32_t a[8], b[8];
     char *str, *token;
 
@@ -124,15 +128,15 @@ static void calc_produto_escalar(void)
         b[i] = atoi(token);
     }
 
-    printf("=== CÁLCULO PRODUTO ESCALAR ===\n");
+    printf("\nCÁLCULO PRODUTO ESCALAR: \n");
     
     printf("Vetor A: ");
     for(int i = 0; i < 8; i++) printf("%ld ", (long)a[i]);
     printf("\nVetor B: ");
     for(int i = 0; i < 8; i++) printf("%ld ", (long)b[i]);
-    printf("\n");
+    printf("\n\n");
     
-    // Escreve vetores
+    // Escreve vetores no hardware
     produto_escalar_vetor_a0_write(a[0]);
     produto_escalar_vetor_a1_write(a[1]);
     produto_escalar_vetor_a2_write(a[2]);
@@ -151,33 +155,34 @@ static void calc_produto_escalar(void)
     produto_escalar_vetor_b6_write(b[6]);
     produto_escalar_vetor_b7_write(b[7]);
 
-    // Reset e início
-    produto_escalar_iniciar_write(0);
-    for(volatile int d = 0; d < 10000; d++);
+    printf("Iniciando cálculo...\n");
     
+    // Reset
+    produto_escalar_iniciar_write(0);
+    for(volatile int d = 0; d < 1000; d++);
+    
+    // Pulso de iniciar
     produto_escalar_iniciar_write(1);
     for(volatile int d = 0; d < 1000; d++);
     produto_escalar_iniciar_write(0);
-
-    // Aguarda conclusão
-    printf("Calculando...");
-    int timeout = 0;
-    while(!produto_escalar_concluido_read()) {
-        timeout++;
-        if(timeout > 1000000) {
-            printf("\nTimeout! Hardware não respondeu.\n");
-            return;
-        }
+    
+    // Espera fixa para pipeline
+    printf("Processando");
+    for(volatile int d = 0; d < 10000; d++) {
+        if (d % 2000 == 0) printf(".");
     }
-    printf(" Concluído!\n");
+    printf(" Concluído!\n\n");
+    
+    // Lê o resultado do hardware
+    uint32_t resultado_hw = produto_escalar_resultado_read();
+    
+    printf("Resultado Hardware: %ld (0x%08lx)\n", 
+           (long)(int32_t)resultado_hw, (unsigned long)resultado_hw);
 
-    // CORREÇÃO: LEITURA E CONVERSÃO CORRETA
+    // LEITURA E CONVERSÃO CORRETA
     uint32_t resultado_raw = produto_escalar_resultado_read();
     int32_t resultado_signed = (int32_t)resultado_raw;  // Conversão para signed
     
-    printf("Resultado (hardware): %ld (0x%08lx)\n", 
-           (long)resultado_signed, (unsigned long)resultado_raw);
-
     // Verificação por software
     int32_t verif = 0;
     printf("Verificação (software): ");
@@ -190,41 +195,43 @@ static void calc_produto_escalar(void)
     }
 
     if(verif == resultado_signed) {
-        printf("SUCESSO! Hardware e software coincidem! \n");
+        printf("SUCESSO! Hardware e software coincidem!");
     } else {
-        printf("ERRO! Resultados diferentes! \n");
-        printf("Hardware: %ld, Software: %ld\n", (long)resultado_signed, (long)verif);
+        printf("ERRO! Resultados diferentes!\n");
+        printf("   Hardware: %ld, Software: %ld\n", (long)resultado_signed, (long)verif);
     }
+    
+    printf("\n");
 }
 
 static void debug_csr(void) {
     printf("=== DEBUG CSR ===\n");
     
-    // Verifica quais CSRs existem
-#ifdef CSR_PRODUTO_ESCALAR_RESULTADO_HI_ADDR
-    printf("RESULTADO_HI_ADDR definido: 0x%08lx\n", (unsigned long)CSR_PRODUTO_ESCALAR_RESULTADO_HI_ADDR);
+#if PRODUTO_ESCALAR_AVAILABLE
+    printf("Módulo produto_escalar encontrado!\n\n");
+    
+    // Lê e mostra os valores dos registradores
+    printf("Entradas do vetor A:\n");
+    printf("  a0: %ld\n", (long)produto_escalar_vetor_a0_read());
+    printf("  a1: %ld\n", (long)produto_escalar_vetor_a1_read());
+    printf("  a2: %ld\n", (long)produto_escalar_vetor_a2_read());
+    printf("  a3: %ld\n", (long)produto_escalar_vetor_a3_read());
+    
+    printf("\nStatus do hardware:\n");
+    printf("  iniciar: %ld\n", (long)produto_escalar_iniciar_read());
+    printf("  concluido: %ld\n", (long)produto_escalar_concluido_read());
+    printf("  resultado: %ld\n", (long)produto_escalar_resultado_read());
+    
+    // Testa se consegue escrever e ler um registrador
+    printf("\nTeste de comunicação:\n");
+    produto_escalar_vetor_a0_write(0x12345678);
+    uint32_t valor_lido = produto_escalar_vetor_a0_read();
+    printf("  Escrito: 0x12345678, Lido: 0x%08lx\n", (unsigned long)valor_lido);
+    
 #else
-    printf("RESULTADO_HI_ADDR NÃO definido\n");
+    printf("Módulo produto_escalar NÃO encontrado!\n");
+    printf("Verifique a configuração do hardware.\n");
 #endif
-
-#ifdef CSR_PRODUTO_ESCALAR_RESULTADO_LO_ADDR
-    printf("RESULTADO_LO_ADDR definido: 0x%08lx\n", (unsigned long)CSR_PRODUTO_ESCALAR_RESULTADO_LO_ADDR);
-#else
-    printf("RESULTADO_LO_ADDR NÃO definido\n");
-#endif
-
-#ifdef CSR_PRODUTO_ESCALAR_RESULTADO_ADDR
-    printf("RESULTADO_ADDR definido: 0x%08lx\n", (unsigned long)CSR_PRODUTO_ESCALAR_RESULTADO_ADDR);
-#else
-    printf("RESULTADO_ADDR NÃO definido\n");
-#endif
-
-    // Testa leitura múltipla
-    printf("Teste leitura múltipla:\n");
-    for(int i = 0; i < 4; i++) {
-        uint32_t val = produto_escalar_resultado_read();
-        printf("  Leitura %d: 0x%08lx (%lu)\n", i, (unsigned long)val, (unsigned long)val);
-    }
 }
 
 static void console_service(void) {
@@ -238,8 +245,6 @@ static void console_service(void) {
         help();
     else if(strcmp(token, "reboot") == 0)
         reboot();
-    else if(strcmp(token, "led") == 0)
-        toggle_led();
     else if(strcmp(token, "produto_escalar") == 0)
         calc_produto_escalar();
     else if(strcmp(token, "debug_csr") == 0)
@@ -256,7 +261,16 @@ int main(void) {
 #endif
     uart_init();
 
-    printf("\n=== Sistema LiteX com Produto Escalar ===\n");
+    printf("\n");
+    printf("=========================================================\n");
+    printf("|               RISC-V com Produto Escalar               |\n");
+//#if PRODUTO_ESCALAR_AVAILABLE
+//    printf("|                   HARDWARE DETECTADO                    |\n");
+//#else
+//    printf("|                 HARDWARE NÃO DETECTADO                |\n");
+//#endif
+    printf("=========================================================\n");
+    
     help();
     prompt();
 

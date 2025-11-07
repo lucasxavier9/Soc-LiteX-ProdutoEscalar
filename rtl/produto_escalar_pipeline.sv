@@ -1,4 +1,4 @@
-// Módulo: produto_escalar_pipeline 
+// rtl/produto_escalar_pipeline.sv
 module produto_escalar_pipeline (
     input  logic        clk_i,
     input  logic        rst_i,
@@ -9,114 +9,107 @@ module produto_escalar_pipeline (
     output logic        concluido
 );
 
-    // Estados da FSM 
-    typedef enum logic [1:0] {
-        PARADO     = 2'b00,
-        CALCULANDO = 2'b01,
-        CONCLUIDO  = 2'b10
-    } estado_t;
-
-    estado_t estado_atual;
-
-    // Estágio 1: Registrar Entradas
-    logic signed [31:0] a_reg [0:7];
-    logic signed [31:0] b_reg [0:7];
+    // ESTÁGIO 0 — Registro das entradas
+    logic signed [31:0] a_registrado [0:7];
+    logic signed [31:0] b_registrado [0:7];
+    logic iniciar_estagio0;
 
     always_ff @(posedge clk_i or posedge rst_i) begin
         if (rst_i) begin
+            iniciar_estagio0 <= 1'b0;
             for (int i = 0; i < 8; i++) begin
-                a_reg[i] <= '0;
-                b_reg[i] <= '0;
+                a_registrado[i] <= '0;
+                b_registrado[i] <= '0;
             end
-        end else if (estado_atual == CALCULANDO) begin
-            a_reg[0] <= a0; a_reg[1] <= a1; a_reg[2] <= a2; a_reg[3] <= a3;
-            a_reg[4] <= a4; a_reg[5] <= a5; a_reg[6] <= a6; a_reg[7] <= a7;
-
-            b_reg[0] <= b0; b_reg[1] <= b1; b_reg[2] <= b2; b_reg[3] <= b3;
-            b_reg[4] <= b4; b_reg[5] <= b5; b_reg[6] <= b6; b_reg[7] <= b7;
-        end
-    end
-
-    // Estágio 2: Multiplicações Registradas (Pipeline)
-    logic signed [63:0] produto_reg [0:7];
-
-    always_ff @(posedge clk_i or posedge rst_i) begin
-        if (rst_i) begin
-            for (int i = 0; i < 8; i++)
-                produto_reg[i] <= '0;
-        end else if (estado_atual == CALCULANDO) begin
-            for (int i = 0; i < 8; i++)
-                produto_reg[i] <= a_reg[i] * b_reg[i];
-        end
-    end
-
-    // Estágio 3: Soma Parcial Registrada
-    logic signed [63:0] soma_parcial [0:3];
-
-    always_ff @(posedge clk_i or posedge rst_i) begin
-        if (rst_i) begin
-            for (int i = 0; i < 4; i++)
-                soma_parcial[i] <= '0;
-        end else if (estado_atual == CALCULANDO) begin
-            soma_parcial[0] <= produto_reg[0] + produto_reg[1];
-            soma_parcial[1] <= produto_reg[2] + produto_reg[3];
-            soma_parcial[2] <= produto_reg[4] + produto_reg[5];
-            soma_parcial[3] <= produto_reg[6] + produto_reg[7];
-        end
-    end
-
-    // Estágio 4: Soma Final Registrada
-    logic signed [63:0] soma_final;
-
-    always_ff @(posedge clk_i or posedge rst_i) begin
-        if (rst_i)
-            soma_final <= '0;
-        else if (estado_atual == CALCULANDO)
-            soma_final <= soma_parcial[0] + soma_parcial[1] +
-                          soma_parcial[2] + soma_parcial[3];
-    end
-
-    // FSM e Controle de Latência
-    logic [3:0] contador_ciclos;
-
-    always_ff @(posedge clk_i or posedge rst_i) begin
-        if (rst_i) begin
-            estado_atual    <= PARADO;
-            resultado       <= '0;
-            concluido       <= 1'b0;
-            contador_ciclos <= 4'd0;
         end else begin
-            case (estado_atual)
-                PARADO: begin
-                    concluido       <= 1'b0;
-                    contador_ciclos <= 4'd0;
-                    if (iniciar)
-                        estado_atual <= CALCULANDO;
-                end
-
-                CALCULANDO: begin
-                    contador_ciclos <= contador_ciclos + 1;
-
-                    // Latência total: 4 estágios de pipeline
-                    if (contador_ciclos == 4'd4) begin
-                        resultado     <= soma_final;
-                        estado_atual  <= CONCLUIDO;
-                        concluido     <= 1'b1;
-                    end
-                end
-
-                CONCLUIDO: begin
-                    concluido <= 1'b1;
-                    if (iniciar) begin
-                        estado_atual    <= CALCULANDO;
-                        contador_ciclos <= 4'd0;
-                        concluido       <= 1'b0;
-                    end
-                end
-
-                default: estado_atual <= PARADO;
-            endcase
+            iniciar_estagio0 <= iniciar;
+            a_registrado[0] <= a0; b_registrado[0] <= b0;
+            a_registrado[1] <= a1; b_registrado[1] <= b1;
+            a_registrado[2] <= a2; b_registrado[2] <= b2;
+            a_registrado[3] <= a3; b_registrado[3] <= b3;
+            a_registrado[4] <= a4; b_registrado[4] <= b4;
+            a_registrado[5] <= a5; b_registrado[5] <= b5;
+            a_registrado[6] <= a6; b_registrado[6] <= b6;
+            a_registrado[7] <= a7; b_registrado[7] <= b7;
         end
     end
+
+    // ESTÁGIO 1 — Multiplicações
+    logic signed [63:0] produto_registrado [0:7];
+    logic iniciar_estagio1;
+
+    always_ff @(posedge clk_i or posedge rst_i) begin
+        if (rst_i) begin
+            iniciar_estagio1 <= 1'b0;
+            for (int i = 0; i < 8; i++) begin
+                produto_registrado[i] <= '0;
+            end
+        end else begin
+            iniciar_estagio1 <= iniciar_estagio0;
+            for (int i = 0; i < 8; i++) begin
+                produto_registrado[i] <= a_registrado[i] * b_registrado[i];
+            end
+        end
+    end
+
+    // ESTÁGIO 2 — Primeiro nível de soma
+    logic signed [63:0] soma_estagio2 [0:3];
+    logic iniciar_estagio2;
+
+    always_ff @(posedge clk_i or posedge rst_i) begin
+        if (rst_i) begin
+            iniciar_estagio2 <= 1'b0;
+            for (int i = 0; i < 4; i++) begin
+                soma_estagio2[i] <= '0;
+            end
+        end else begin
+            iniciar_estagio2 <= iniciar_estagio1;
+            soma_estagio2[0] <= produto_registrado[0] + produto_registrado[1];
+            soma_estagio2[1] <= produto_registrado[2] + produto_registrado[3];
+            soma_estagio2[2] <= produto_registrado[4] + produto_registrado[5];
+            soma_estagio2[3] <= produto_registrado[6] + produto_registrado[7];
+        end
+    end
+
+    // ESTÁGIO 3 — Segundo nível de soma
+    logic signed [63:0] soma_estagio3 [0:1];
+    logic iniciar_estagio3;
+
+    always_ff @(posedge clk_i or posedge rst_i) begin
+        if (rst_i) begin
+            iniciar_estagio3 <= 1'b0;
+            for (int i = 0; i < 2; i++) begin
+                soma_estagio3[i] <= '0;
+            end
+        end else begin
+            iniciar_estagio3 <= iniciar_estagio2;
+            soma_estagio3[0] <= soma_estagio2[0] + soma_estagio2[1];
+            soma_estagio3[1] <= soma_estagio2[2] + soma_estagio2[3];
+        end
+    end
+
+    // ESTÁGIO 4 — Soma final e controle de pipeline
+    logic [3:0] atraso_pipeline;
+    logic atraso_pipeline_anterior;
+
+    always_ff @(posedge clk_i or posedge rst_i) begin
+        if (rst_i) begin
+            resultado <= '0;
+            atraso_pipeline <= '0;
+            atraso_pipeline_anterior <= 1'b0;
+        end else begin
+            resultado <= soma_estagio3[0] + soma_estagio3[1];
+
+            // Controle do pipeline
+            if (iniciar)
+                atraso_pipeline <= 4'b0001;
+            else if (atraso_pipeline != 4'b0000)
+                atraso_pipeline <= {atraso_pipeline[2:0], 1'b0};
+
+            atraso_pipeline_anterior <= atraso_pipeline[3];
+        end
+    end
+
+    assign concluido = (!atraso_pipeline[3] && atraso_pipeline_anterior);
 
 endmodule
