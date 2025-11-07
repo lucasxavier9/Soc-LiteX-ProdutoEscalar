@@ -1,5 +1,4 @@
-// rtl/produto_escalar.sv
-// Produto escalar pipeline
+// Módulo: produto_escalar_pipeline 
 module produto_escalar_pipeline (
     input  logic        clk_i,
     input  logic        rst_i,
