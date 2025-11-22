@@ -1846,7 +1846,7 @@ Discarded input sections
  .group         0x00000000        0xc main.o
  .group         0x00000000        0xc main.o
  .data          0x00000000        0x0 main.o
- .eh_frame      0x00000000       0xb4 main.o
+ .eh_frame      0x00000000       0xb8 main.o
  .group         0x00000000        0xc ../build/colorlight_i5/software/libc/libc.a(ieeefp.c.o)
  .group         0x00000000        0xc ../build/colorlight_i5/software/libc/libc.a(ieeefp.c.o)
  .group         0x00000000        0xc ../build/colorlight_i5/software/libc/libc.a(ieeefp.c.o)
@@ -62128,7 +62128,7 @@ Discarded input sections
  .debug_macro   0x00000000       0x16 ../build/colorlight_i5/software/libc/libc.a(_libc.a)
  .debug_macro   0x00000000       0x94 ../build/colorlight_i5/software/libc/libc.a(_libc.a)
  .debug_macro   0x00000000       0x4a ../build/colorlight_i5/software/libc/libc.a(_libc.a)
- .debug_macro   0x00000000      0x464 ../build/colorlight_i5/software/libc/libc.a(_libc.a)
+ .debug_macro   0x00000000      0x48e ../build/colorlight_i5/software/libc/libc.a(_libc.a)
  .eh_frame      0x00000000       0x50 ../build/colorlight_i5/software/libc/libc.a(_libc.a)
  .group         0x00000000        0xc ../build/colorlight_i5/software/libc/libc.a(libc.a)
  .group         0x00000000        0xc ../build/colorlight_i5/software/libc/libc.a(libc.a)
@@ -64459,7 +64459,7 @@ Discarded input sections
  .debug_macro   0x00000000      0x1df ../build/colorlight_i5/software/libbase/libbase.a(console.o)
  .debug_macro   0x00000000      0x189 ../build/colorlight_i5/software/libbase/libbase.a(console.o)
  .debug_macro   0x00000000       0x4a ../build/colorlight_i5/software/libbase/libbase.a(console.o)
- .debug_macro   0x00000000      0x464 ../build/colorlight_i5/software/libbase/libbase.a(console.o)
+ .debug_macro   0x00000000      0x48e ../build/colorlight_i5/software/libbase/libbase.a(console.o)
  .eh_frame      0x00000000       0x28 ../build/colorlight_i5/software/libbase/libbase.a(console.o)
  .group         0x00000000        0xc ../build/colorlight_i5/software/libbase/libbase.a(system.o)
  .group         0x00000000        0xc ../build/colorlight_i5/software/libbase/libbase.a(system.o)
@@ -64495,10 +64495,10 @@ Discarded input sections
  .debug_macro   0x00000000       0x6a ../build/colorlight_i5/software/libbase/libbase.a(system.o)
  .debug_macro   0x00000000      0x1df ../build/colorlight_i5/software/libbase/libbase.a(system.o)
  .debug_macro   0x00000000       0x4a ../build/colorlight_i5/software/libbase/libbase.a(system.o)
- .debug_macro   0x00000000      0x464 ../build/colorlight_i5/software/libbase/libbase.a(system.o)
+ .debug_macro   0x00000000      0x48e ../build/colorlight_i5/software/libbase/libbase.a(system.o)
  .debug_macro   0x00000000       0x40 ../build/colorlight_i5/software/libbase/libbase.a(system.o)
  .debug_line    0x00000000      0x4f1 ../build/colorlight_i5/software/libbase/libbase.a(system.o)
- .debug_str     0x00000000     0x7421 ../build/colorlight_i5/software/libbase/libbase.a(system.o)
+ .debug_str     0x00000000     0x755a ../build/colorlight_i5/software/libbase/libbase.a(system.o)
  .debug_line_str
                 0x00000000      0x4bb ../build/colorlight_i5/software/libbase/libbase.a(system.o)
  .comment       0x00000000       0x13 ../build/colorlight_i5/software/libbase/libbase.a(system.o)
@@ -64635,7 +64635,7 @@ Discarded input sections
  .debug_macro   0x00000000      0x1df ../build/colorlight_i5/software/libbase/libbase.a(memtest.o)
  .debug_macro   0x00000000      0x189 ../build/colorlight_i5/software/libbase/libbase.a(memtest.o)
  .debug_macro   0x00000000       0x4a ../build/colorlight_i5/software/libbase/libbase.a(memtest.o)
- .debug_macro   0x00000000      0x464 ../build/colorlight_i5/software/libbase/libbase.a(memtest.o)
+ .debug_macro   0x00000000      0x48e ../build/colorlight_i5/software/libbase/libbase.a(memtest.o)
  .debug_macro   0x00000000      0x384 ../build/colorlight_i5/software/libbase/libbase.a(memtest.o)
  .debug_macro   0x00000000       0x7c ../build/colorlight_i5/software/libbase/libbase.a(memtest.o)
  .debug_macro   0x00000000       0x10 ../build/colorlight_i5/software/libbase/libbase.a(memtest.o)
@@ -64653,7 +64653,7 @@ Discarded input sections
  .debug_macro   0x00000000       0x10 ../build/colorlight_i5/software/libbase/libbase.a(memtest.o)
  .debug_macro   0x00000000      0x13f ../build/colorlight_i5/software/libbase/libbase.a(memtest.o)
  .debug_line    0x00000000     0x1362 ../build/colorlight_i5/software/libbase/libbase.a(memtest.o)
- .debug_str     0x00000000     0xb1b9 ../build/colorlight_i5/software/libbase/libbase.a(memtest.o)
+ .debug_str     0x00000000     0xb2f2 ../build/colorlight_i5/software/libbase/libbase.a(memtest.o)
  .debug_line_str
                 0x00000000      0x5c1 ../build/colorlight_i5/software/libbase/libbase.a(memtest.o)
  .comment       0x00000000       0x13 ../build/colorlight_i5/software/libbase/libbase.a(memtest.o)
@@ -64686,7 +64686,7 @@ Discarded input sections
  .debug_macro   0x00000000       0x6a ../build/colorlight_i5/software/libbase/libbase.a(uart.o)
  .debug_macro   0x00000000      0x1df ../build/colorlight_i5/software/libbase/libbase.a(uart.o)
  .debug_macro   0x00000000       0x4a ../build/colorlight_i5/software/libbase/libbase.a(uart.o)
- .debug_macro   0x00000000      0x464 ../build/colorlight_i5/software/libbase/libbase.a(uart.o)
+ .debug_macro   0x00000000      0x48e ../build/colorlight_i5/software/libbase/libbase.a(uart.o)
  .eh_frame      0x00000000       0xcc ../build/colorlight_i5/software/libbase/libbase.a(uart.o)
  .group         0x00000000        0xc ../build/colorlight_i5/software/libbase/libbase.a(spiflash.o)
  .group         0x00000000        0xc ../build/colorlight_i5/software/libbase/libbase.a(spiflash.o)
@@ -64717,9 +64717,9 @@ Discarded input sections
  .debug_macro   0x00000000      0x1df ../build/colorlight_i5/software/libbase/libbase.a(spiflash.o)
  .debug_macro   0x00000000      0x189 ../build/colorlight_i5/software/libbase/libbase.a(spiflash.o)
  .debug_macro   0x00000000       0x4a ../build/colorlight_i5/software/libbase/libbase.a(spiflash.o)
- .debug_macro   0x00000000      0x464 ../build/colorlight_i5/software/libbase/libbase.a(spiflash.o)
+ .debug_macro   0x00000000      0x48e ../build/colorlight_i5/software/libbase/libbase.a(spiflash.o)
  .debug_line    0x00000000       0xa4 ../build/colorlight_i5/software/libbase/libbase.a(spiflash.o)
- .debug_str     0x00000000     0x71e5 ../build/colorlight_i5/software/libbase/libbase.a(spiflash.o)
+ .debug_str     0x00000000     0x731e ../build/colorlight_i5/software/libbase/libbase.a(spiflash.o)
  .debug_line_str
                 0x00000000      0x4b3 ../build/colorlight_i5/software/libbase/libbase.a(spiflash.o)
  .comment       0x00000000       0x13 ../build/colorlight_i5/software/libbase/libbase.a(spiflash.o)
@@ -64786,9 +64786,9 @@ Discarded input sections
  .debug_macro   0x00000000       0xd6 ../build/colorlight_i5/software/libbase/libbase.a(i2c.o)
  .debug_macro   0x00000000       0x94 ../build/colorlight_i5/software/libbase/libbase.a(i2c.o)
  .debug_macro   0x00000000       0x4a ../build/colorlight_i5/software/libbase/libbase.a(i2c.o)
- .debug_macro   0x00000000      0x464 ../build/colorlight_i5/software/libbase/libbase.a(i2c.o)
+ .debug_macro   0x00000000      0x48e ../build/colorlight_i5/software/libbase/libbase.a(i2c.o)
  .debug_line    0x00000000       0xe9 ../build/colorlight_i5/software/libbase/libbase.a(i2c.o)
- .debug_str     0x00000000     0x933a ../build/colorlight_i5/software/libbase/libbase.a(i2c.o)
+ .debug_str     0x00000000     0x9473 ../build/colorlight_i5/software/libbase/libbase.a(i2c.o)
  .debug_line_str
                 0x00000000      0x591 ../build/colorlight_i5/software/libbase/libbase.a(i2c.o)
  .comment       0x00000000       0x13 ../build/colorlight_i5/software/libbase/libbase.a(i2c.o)
@@ -64831,7 +64831,7 @@ Discarded input sections
  .debug_macro   0x00000000      0x1df ../build/colorlight_i5/software/libbase/libbase.a(isr.o)
  .debug_macro   0x00000000      0x189 ../build/colorlight_i5/software/libbase/libbase.a(isr.o)
  .debug_macro   0x00000000       0x4a ../build/colorlight_i5/software/libbase/libbase.a(isr.o)
- .debug_macro   0x00000000      0x464 ../build/colorlight_i5/software/libbase/libbase.a(isr.o)
+ .debug_macro   0x00000000      0x48e ../build/colorlight_i5/software/libbase/libbase.a(isr.o)
  .debug_macro   0x00000000       0x16 ../build/colorlight_i5/software/libbase/libbase.a(isr.o)
  .debug_macro   0x00000000       0x27 ../build/colorlight_i5/software/libbase/libbase.a(isr.o)
  .debug_macro   0x00000000      0x183 ../build/colorlight_i5/software/libbase/libbase.a(isr.o)
@@ -64903,9 +64903,9 @@ Discarded input sections
  .debug_macro   0x00000000       0xd6 ../build/colorlight_i5/software/libbase/libbase.a(hyperram.o)
  .debug_macro   0x00000000       0x94 ../build/colorlight_i5/software/libbase/libbase.a(hyperram.o)
  .debug_macro   0x00000000       0x4a ../build/colorlight_i5/software/libbase/libbase.a(hyperram.o)
- .debug_macro   0x00000000      0x464 ../build/colorlight_i5/software/libbase/libbase.a(hyperram.o)
+ .debug_macro   0x00000000      0x48e ../build/colorlight_i5/software/libbase/libbase.a(hyperram.o)
  .debug_line    0x00000000       0xe4 ../build/colorlight_i5/software/libbase/libbase.a(hyperram.o)
- .debug_str     0x00000000     0x974e ../build/colorlight_i5/software/libbase/libbase.a(hyperram.o)
+ .debug_str     0x00000000     0x9887 ../build/colorlight_i5/software/libbase/libbase.a(hyperram.o)
  .debug_line_str
                 0x00000000      0x596 ../build/colorlight_i5/software/libbase/libbase.a(hyperram.o)
  .comment       0x00000000       0x13 ../build/colorlight_i5/software/libbase/libbase.a(hyperram.o)
@@ -65077,11 +65077,11 @@ Discarded input sections
  .debug_macro   0x00000000       0x22 ../build/colorlight_i5/software/liblitespi/liblitespi.a(spiflash.o)
  .debug_macro   0x00000000       0xd6 ../build/colorlight_i5/software/liblitespi/liblitespi.a(spiflash.o)
  .debug_macro   0x00000000       0x4a ../build/colorlight_i5/software/liblitespi/liblitespi.a(spiflash.o)
- .debug_macro   0x00000000      0x464 ../build/colorlight_i5/software/liblitespi/liblitespi.a(spiflash.o)
+ .debug_macro   0x00000000      0x48e ../build/colorlight_i5/software/liblitespi/liblitespi.a(spiflash.o)
  .debug_macro   0x00000000       0x40 ../build/colorlight_i5/software/liblitespi/liblitespi.a(spiflash.o)
  .debug_macro   0x00000000       0x16 ../build/colorlight_i5/software/liblitespi/liblitespi.a(spiflash.o)
  .debug_line    0x00000000      0xbe9 ../build/colorlight_i5/software/liblitespi/liblitespi.a(spiflash.o)
- .debug_str     0x00000000     0xaf72 ../build/colorlight_i5/software/liblitespi/liblitespi.a(spiflash.o)
+ .debug_str     0x00000000     0xb0ab ../build/colorlight_i5/software/liblitespi/liblitespi.a(spiflash.o)
  .debug_line_str
                 0x00000000      0x636 ../build/colorlight_i5/software/liblitespi/liblitespi.a(spiflash.o)
  .comment       0x00000000       0x13 ../build/colorlight_i5/software/liblitespi/liblitespi.a(spiflash.o)
@@ -65162,10 +65162,10 @@ Discarded input sections
  .debug_macro   0x00000000       0x22 ../build/colorlight_i5/software/liblitespi/liblitespi.a(spiram.o)
  .debug_macro   0x00000000       0xd6 ../build/colorlight_i5/software/liblitespi/liblitespi.a(spiram.o)
  .debug_macro   0x00000000       0x4a ../build/colorlight_i5/software/liblitespi/liblitespi.a(spiram.o)
- .debug_macro   0x00000000      0x464 ../build/colorlight_i5/software/liblitespi/liblitespi.a(spiram.o)
+ .debug_macro   0x00000000      0x48e ../build/colorlight_i5/software/liblitespi/liblitespi.a(spiram.o)
  .debug_macro   0x00000000       0x40 ../build/colorlight_i5/software/liblitespi/liblitespi.a(spiram.o)
  .debug_line    0x00000000      0x11a ../build/colorlight_i5/software/liblitespi/liblitespi.a(spiram.o)
- .debug_str     0x00000000     0xabae ../build/colorlight_i5/software/liblitespi/liblitespi.a(spiram.o)
+ .debug_str     0x00000000     0xace7 ../build/colorlight_i5/software/liblitespi/liblitespi.a(spiram.o)
  .debug_line_str
                 0x00000000      0x62a ../build/colorlight_i5/software/liblitespi/liblitespi.a(spiram.o)
  .comment       0x00000000       0x13 ../build/colorlight_i5/software/liblitespi/liblitespi.a(spiram.o)
@@ -65230,7 +65230,7 @@ Discarded input sections
  .debug_macro   0x00000000      0x1df ../build/colorlight_i5/software/liblitedram/liblitedram.a(sdram.o)
  .debug_macro   0x00000000      0x189 ../build/colorlight_i5/software/liblitedram/liblitedram.a(sdram.o)
  .debug_macro   0x00000000       0x4a ../build/colorlight_i5/software/liblitedram/liblitedram.a(sdram.o)
- .debug_macro   0x00000000      0x464 ../build/colorlight_i5/software/liblitedram/liblitedram.a(sdram.o)
+ .debug_macro   0x00000000      0x48e ../build/colorlight_i5/software/liblitedram/liblitedram.a(sdram.o)
  .debug_macro   0x00000000       0x40 ../build/colorlight_i5/software/liblitedram/liblitedram.a(sdram.o)
  .debug_macro   0x00000000       0x27 ../build/colorlight_i5/software/liblitedram/liblitedram.a(sdram.o)
  .debug_macro   0x00000000      0x183 ../build/colorlight_i5/software/liblitedram/liblitedram.a(sdram.o)
@@ -65254,7 +65254,7 @@ Discarded input sections
  .debug_macro   0x00000000      0x106 ../build/colorlight_i5/software/liblitedram/liblitedram.a(sdram.o)
  .debug_macro   0x00000000       0x94 ../build/colorlight_i5/software/liblitedram/liblitedram.a(sdram.o)
  .debug_line    0x00000000      0xbad ../build/colorlight_i5/software/liblitedram/liblitedram.a(sdram.o)
- .debug_str     0x00000000     0xb589 ../build/colorlight_i5/software/liblitedram/liblitedram.a(sdram.o)
+ .debug_str     0x00000000     0xb6c2 ../build/colorlight_i5/software/liblitedram/liblitedram.a(sdram.o)
  .debug_line_str
                 0x00000000      0x657 ../build/colorlight_i5/software/liblitedram/liblitedram.a(sdram.o)
  .comment       0x00000000       0x13 ../build/colorlight_i5/software/liblitedram/liblitedram.a(sdram.o)
@@ -65292,9 +65292,9 @@ Discarded input sections
  .debug_macro   0x00000000      0x1df ../build/colorlight_i5/software/liblitedram/liblitedram.a(bist.o)
  .debug_macro   0x00000000      0x189 ../build/colorlight_i5/software/liblitedram/liblitedram.a(bist.o)
  .debug_macro   0x00000000       0x4a ../build/colorlight_i5/software/liblitedram/liblitedram.a(bist.o)
- .debug_macro   0x00000000      0x464 ../build/colorlight_i5/software/liblitedram/liblitedram.a(bist.o)
+ .debug_macro   0x00000000      0x48e ../build/colorlight_i5/software/liblitedram/liblitedram.a(bist.o)
  .debug_line    0x00000000       0xa4 ../build/colorlight_i5/software/liblitedram/liblitedram.a(bist.o)
- .debug_str     0x00000000     0x71e5 ../build/colorlight_i5/software/liblitedram/liblitedram.a(bist.o)
+ .debug_str     0x00000000     0x731e ../build/colorlight_i5/software/liblitedram/liblitedram.a(bist.o)
  .debug_line_str
                 0x00000000      0x4b7 ../build/colorlight_i5/software/liblitedram/liblitedram.a(bist.o)
  .comment       0x00000000       0x13 ../build/colorlight_i5/software/liblitedram/liblitedram.a(bist.o)
@@ -65346,7 +65346,7 @@ Discarded input sections
  .debug_macro   0x00000000      0x1df ../build/colorlight_i5/software/liblitedram/liblitedram.a(sdram_dbg.o)
  .debug_macro   0x00000000      0x189 ../build/colorlight_i5/software/liblitedram/liblitedram.a(sdram_dbg.o)
  .debug_macro   0x00000000       0x4a ../build/colorlight_i5/software/liblitedram/liblitedram.a(sdram_dbg.o)
- .debug_macro   0x00000000      0x464 ../build/colorlight_i5/software/liblitedram/liblitedram.a(sdram_dbg.o)
+ .debug_macro   0x00000000      0x48e ../build/colorlight_i5/software/liblitedram/liblitedram.a(sdram_dbg.o)
  .debug_macro   0x00000000       0x94 ../build/colorlight_i5/software/liblitedram/liblitedram.a(sdram_dbg.o)
  .debug_macro   0x00000000       0x27 ../build/colorlight_i5/software/liblitedram/liblitedram.a(sdram_dbg.o)
  .debug_macro   0x00000000      0x183 ../build/colorlight_i5/software/liblitedram/liblitedram.a(sdram_dbg.o)
@@ -65363,7 +65363,7 @@ Discarded input sections
  .debug_macro   0x00000000       0x10 ../build/colorlight_i5/software/liblitedram/liblitedram.a(sdram_dbg.o)
  .debug_macro   0x00000000      0x13f ../build/colorlight_i5/software/liblitedram/liblitedram.a(sdram_dbg.o)
  .debug_line    0x00000000       0xfd ../build/colorlight_i5/software/liblitedram/liblitedram.a(sdram_dbg.o)
- .debug_str     0x00000000     0xab7a ../build/colorlight_i5/software/liblitedram/liblitedram.a(sdram_dbg.o)
+ .debug_str     0x00000000     0xacb3 ../build/colorlight_i5/software/liblitedram/liblitedram.a(sdram_dbg.o)
  .debug_line_str
                 0x00000000      0x5cc ../build/colorlight_i5/software/liblitedram/liblitedram.a(sdram_dbg.o)
  .comment       0x00000000       0x13 ../build/colorlight_i5/software/liblitedram/liblitedram.a(sdram_dbg.o)
@@ -65406,9 +65406,9 @@ Discarded input sections
  .debug_macro   0x00000000       0xd6 ../build/colorlight_i5/software/liblitedram/liblitedram.a(sdram_spd.o)
  .debug_macro   0x00000000      0x189 ../build/colorlight_i5/software/liblitedram/liblitedram.a(sdram_spd.o)
  .debug_macro   0x00000000       0x4a ../build/colorlight_i5/software/liblitedram/liblitedram.a(sdram_spd.o)
- .debug_macro   0x00000000      0x464 ../build/colorlight_i5/software/liblitedram/liblitedram.a(sdram_spd.o)
+ .debug_macro   0x00000000      0x48e ../build/colorlight_i5/software/liblitedram/liblitedram.a(sdram_spd.o)
  .debug_line    0x00000000       0xd4 ../build/colorlight_i5/software/liblitedram/liblitedram.a(sdram_spd.o)
- .debug_str     0x00000000     0x72dc ../build/colorlight_i5/software/liblitedram/liblitedram.a(sdram_spd.o)
+ .debug_str     0x00000000     0x7415 ../build/colorlight_i5/software/liblitedram/liblitedram.a(sdram_spd.o)
  .debug_line_str
                 0x00000000      0x527 ../build/colorlight_i5/software/liblitedram/liblitedram.a(sdram_spd.o)
  .comment       0x00000000       0x13 ../build/colorlight_i5/software/liblitedram/liblitedram.a(sdram_spd.o)
@@ -65481,10 +65481,10 @@ Discarded input sections
  .debug_macro   0x00000000       0xd6 ../build/colorlight_i5/software/liblitedram/liblitedram.a(utils.o)
  .debug_macro   0x00000000       0x94 ../build/colorlight_i5/software/liblitedram/liblitedram.a(utils.o)
  .debug_macro   0x00000000       0x4a ../build/colorlight_i5/software/liblitedram/liblitedram.a(utils.o)
- .debug_macro   0x00000000      0x464 ../build/colorlight_i5/software/liblitedram/liblitedram.a(utils.o)
+ .debug_macro   0x00000000      0x48e ../build/colorlight_i5/software/liblitedram/liblitedram.a(utils.o)
  .debug_macro   0x00000000       0x94 ../build/colorlight_i5/software/liblitedram/liblitedram.a(utils.o)
  .debug_line    0x00000000      0x27b ../build/colorlight_i5/software/liblitedram/liblitedram.a(utils.o)
- .debug_str     0x00000000     0x9639 ../build/colorlight_i5/software/liblitedram/liblitedram.a(utils.o)
+ .debug_str     0x00000000     0x9772 ../build/colorlight_i5/software/liblitedram/liblitedram.a(utils.o)
  .debug_line_str
                 0x00000000      0x60b ../build/colorlight_i5/software/liblitedram/liblitedram.a(utils.o)
  .comment       0x00000000       0x13 ../build/colorlight_i5/software/liblitedram/liblitedram.a(utils.o)
@@ -65548,9 +65548,9 @@ Discarded input sections
  .debug_macro   0x00000000       0xd6 ../build/colorlight_i5/software/liblitedram/liblitedram.a(accessors.o)
  .debug_macro   0x00000000       0x94 ../build/colorlight_i5/software/liblitedram/liblitedram.a(accessors.o)
  .debug_macro   0x00000000       0x4a ../build/colorlight_i5/software/liblitedram/liblitedram.a(accessors.o)
- .debug_macro   0x00000000      0x464 ../build/colorlight_i5/software/liblitedram/liblitedram.a(accessors.o)
+ .debug_macro   0x00000000      0x48e ../build/colorlight_i5/software/liblitedram/liblitedram.a(accessors.o)
  .debug_line    0x00000000       0xe4 ../build/colorlight_i5/software/liblitedram/liblitedram.a(accessors.o)
- .debug_str     0x00000000     0x92a1 ../build/colorlight_i5/software/liblitedram/liblitedram.a(accessors.o)
+ .debug_str     0x00000000     0x93da ../build/colorlight_i5/software/liblitedram/liblitedram.a(accessors.o)
  .debug_line_str
                 0x00000000      0x5a5 ../build/colorlight_i5/software/liblitedram/liblitedram.a(accessors.o)
  .comment       0x00000000       0x13 ../build/colorlight_i5/software/liblitedram/liblitedram.a(accessors.o)
@@ -65588,10 +65588,10 @@ Discarded input sections
  .debug_macro   0x00000000      0x1df ../build/colorlight_i5/software/libliteeth/libliteeth.a(udp.o)
  .debug_macro   0x00000000      0x189 ../build/colorlight_i5/software/libliteeth/libliteeth.a(udp.o)
  .debug_macro   0x00000000       0x4a ../build/colorlight_i5/software/libliteeth/libliteeth.a(udp.o)
- .debug_macro   0x00000000      0x464 ../build/colorlight_i5/software/libliteeth/libliteeth.a(udp.o)
+ .debug_macro   0x00000000      0x48e ../build/colorlight_i5/software/libliteeth/libliteeth.a(udp.o)
  .debug_macro   0x00000000       0x40 ../build/colorlight_i5/software/libliteeth/libliteeth.a(udp.o)
  .debug_line    0x00000000       0xa9 ../build/colorlight_i5/software/libliteeth/libliteeth.a(udp.o)
- .debug_str     0x00000000     0x735b ../build/colorlight_i5/software/libliteeth/libliteeth.a(udp.o)
+ .debug_str     0x00000000     0x7494 ../build/colorlight_i5/software/libliteeth/libliteeth.a(udp.o)
  .debug_line_str
                 0x00000000      0x4b8 ../build/colorlight_i5/software/libliteeth/libliteeth.a(udp.o)
  .comment       0x00000000       0x13 ../build/colorlight_i5/software/libliteeth/libliteeth.a(udp.o)
@@ -65705,9 +65705,9 @@ Discarded input sections
  .debug_macro   0x00000000      0x1df ../build/colorlight_i5/software/libliteeth/libliteeth.a(mdio.o)
  .debug_macro   0x00000000      0x189 ../build/colorlight_i5/software/libliteeth/libliteeth.a(mdio.o)
  .debug_macro   0x00000000       0x4a ../build/colorlight_i5/software/libliteeth/libliteeth.a(mdio.o)
- .debug_macro   0x00000000      0x464 ../build/colorlight_i5/software/libliteeth/libliteeth.a(mdio.o)
+ .debug_macro   0x00000000      0x48e ../build/colorlight_i5/software/libliteeth/libliteeth.a(mdio.o)
  .debug_line    0x00000000       0xa4 ../build/colorlight_i5/software/libliteeth/libliteeth.a(mdio.o)
- .debug_str     0x00000000     0x71e5 ../build/colorlight_i5/software/libliteeth/libliteeth.a(mdio.o)
+ .debug_str     0x00000000     0x731e ../build/colorlight_i5/software/libliteeth/libliteeth.a(mdio.o)
  .debug_line_str
                 0x00000000      0x4b4 ../build/colorlight_i5/software/libliteeth/libliteeth.a(mdio.o)
  .comment       0x00000000       0x13 ../build/colorlight_i5/software/libliteeth/libliteeth.a(mdio.o)
@@ -65789,14 +65789,14 @@ Discarded input sections
  .debug_macro   0x00000000       0x3c ../build/colorlight_i5/software/liblitesdcard/liblitesdcard.a(sdcard.o)
  .debug_macro   0x00000000       0xd6 ../build/colorlight_i5/software/liblitesdcard/liblitesdcard.a(sdcard.o)
  .debug_macro   0x00000000       0x4a ../build/colorlight_i5/software/liblitesdcard/liblitesdcard.a(sdcard.o)
- .debug_macro   0x00000000      0x464 ../build/colorlight_i5/software/liblitesdcard/liblitesdcard.a(sdcard.o)
+ .debug_macro   0x00000000      0x48e ../build/colorlight_i5/software/liblitesdcard/liblitesdcard.a(sdcard.o)
  .debug_macro   0x00000000       0x40 ../build/colorlight_i5/software/liblitesdcard/liblitesdcard.a(sdcard.o)
  .debug_macro   0x00000000      0x106 ../build/colorlight_i5/software/liblitesdcard/liblitesdcard.a(sdcard.o)
  .debug_macro   0x00000000       0xee ../build/colorlight_i5/software/liblitesdcard/liblitesdcard.a(sdcard.o)
  .debug_macro   0x00000000       0xc4 ../build/colorlight_i5/software/liblitesdcard/liblitesdcard.a(sdcard.o)
  .debug_macro   0x00000000       0x16 ../build/colorlight_i5/software/liblitesdcard/liblitesdcard.a(sdcard.o)
  .debug_line    0x00000000      0x11f ../build/colorlight_i5/software/liblitesdcard/liblitesdcard.a(sdcard.o)
- .debug_str     0x00000000     0xb290 ../build/colorlight_i5/software/liblitesdcard/liblitesdcard.a(sdcard.o)
+ .debug_str     0x00000000     0xb3c9 ../build/colorlight_i5/software/liblitesdcard/liblitesdcard.a(sdcard.o)
  .debug_line_str
                 0x00000000      0x637 ../build/colorlight_i5/software/liblitesdcard/liblitesdcard.a(sdcard.o)
  .comment       0x00000000       0x13 ../build/colorlight_i5/software/liblitesdcard/liblitesdcard.a(sdcard.o)
@@ -65877,13 +65877,13 @@ Discarded input sections
  .debug_macro   0x00000000       0x3c ../build/colorlight_i5/software/liblitesdcard/liblitesdcard.a(spisdcard.o)
  .debug_macro   0x00000000       0xd6 ../build/colorlight_i5/software/liblitesdcard/liblitesdcard.a(spisdcard.o)
  .debug_macro   0x00000000       0x4a ../build/colorlight_i5/software/liblitesdcard/liblitesdcard.a(spisdcard.o)
- .debug_macro   0x00000000      0x464 ../build/colorlight_i5/software/liblitesdcard/liblitesdcard.a(spisdcard.o)
+ .debug_macro   0x00000000      0x48e ../build/colorlight_i5/software/liblitesdcard/liblitesdcard.a(spisdcard.o)
  .debug_macro   0x00000000       0x40 ../build/colorlight_i5/software/liblitesdcard/liblitesdcard.a(spisdcard.o)
  .debug_macro   0x00000000      0x106 ../build/colorlight_i5/software/liblitesdcard/liblitesdcard.a(spisdcard.o)
  .debug_macro   0x00000000       0xee ../build/colorlight_i5/software/liblitesdcard/liblitesdcard.a(spisdcard.o)
  .debug_macro   0x00000000       0xc4 ../build/colorlight_i5/software/liblitesdcard/liblitesdcard.a(spisdcard.o)
  .debug_line    0x00000000      0x11f ../build/colorlight_i5/software/liblitesdcard/liblitesdcard.a(spisdcard.o)
- .debug_str     0x00000000     0xb248 ../build/colorlight_i5/software/liblitesdcard/liblitesdcard.a(spisdcard.o)
+ .debug_str     0x00000000     0xb381 ../build/colorlight_i5/software/liblitesdcard/liblitesdcard.a(spisdcard.o)
  .debug_line_str
                 0x00000000      0x640 ../build/colorlight_i5/software/liblitesdcard/liblitesdcard.a(spisdcard.o)
  .comment       0x00000000       0x13 ../build/colorlight_i5/software/liblitesdcard/liblitesdcard.a(spisdcard.o)
@@ -65964,13 +65964,13 @@ Discarded input sections
  .debug_macro   0x00000000       0x3c ../build/colorlight_i5/software/liblitesata/liblitesata.a(sata.o)
  .debug_macro   0x00000000       0xd6 ../build/colorlight_i5/software/liblitesata/liblitesata.a(sata.o)
  .debug_macro   0x00000000       0x4a ../build/colorlight_i5/software/liblitesata/liblitesata.a(sata.o)
- .debug_macro   0x00000000      0x464 ../build/colorlight_i5/software/liblitesata/liblitesata.a(sata.o)
+ .debug_macro   0x00000000      0x48e ../build/colorlight_i5/software/liblitesata/liblitesata.a(sata.o)
  .debug_macro   0x00000000       0x40 ../build/colorlight_i5/software/liblitesata/liblitesata.a(sata.o)
  .debug_macro   0x00000000      0x106 ../build/colorlight_i5/software/liblitesata/liblitesata.a(sata.o)
  .debug_macro   0x00000000       0xee ../build/colorlight_i5/software/liblitesata/liblitesata.a(sata.o)
  .debug_macro   0x00000000       0xc4 ../build/colorlight_i5/software/liblitesata/liblitesata.a(sata.o)
  .debug_line    0x00000000      0x11f ../build/colorlight_i5/software/liblitesata/liblitesata.a(sata.o)
- .debug_str     0x00000000     0xb243 ../build/colorlight_i5/software/liblitesata/liblitesata.a(sata.o)
+ .debug_str     0x00000000     0xb37c ../build/colorlight_i5/software/liblitesata/liblitesata.a(sata.o)
  .debug_line_str
                 0x00000000      0x62b ../build/colorlight_i5/software/liblitesata/liblitesata.a(sata.o)
  .comment       0x00000000       0x13 ../build/colorlight_i5/software/liblitesata/liblitesata.a(sata.o)
@@ -66004,7 +66004,7 @@ LOAD ../build/colorlight_i5/software/liblitesdcard/liblitesdcard.a
 LOAD ../build/colorlight_i5/software/liblitesata/liblitesata.a
                 0x00000000                        __DYNAMIC = 0x0
 
-.text           0x40000000     0x1df0
+.text           0x40000000     0x23a0
                 0x40000000                        _ftext = .
  *(.text .stub .text.* .gnu.linkonce.t.*)
  .text          0x40000000      0x2ec crt0.o
@@ -66012,125 +66012,125 @@ LOAD ../build/colorlight_i5/software/liblitesata/liblitesata.a
                 0x4000028c                _irq_enable
                 0x400002b0                _irq_disable
                 0x400002c8                _irq_setmask
- .text          0x400002ec      0x1d4 main.o
- .text.startup  0x400004c0      0x4bc main.o
-                0x400004c0                main
- .text.strcmp   0x4000097c       0x20 ../build/colorlight_i5/software/libc/libc.a(strcmp.S.o)
-                0x4000097c                strcmp
- .text.strlen   0x4000099c       0x1c ../build/colorlight_i5/software/libc/libc.a(strlen.c.o)
-                0x4000099c                strlen
- .text.atoi     0x400009b8        0xc ../build/colorlight_i5/software/libc/libc.a(libc_stdlib_atoi.c.o)
-                0x400009b8                atoi
- .text.strchr   0x400009c4       0x2c ../build/colorlight_i5/software/libc/libc.a(libc_string_strchr.c.o)
-                0x400009c4                strchr
- .text.strnlen  0x400009f0       0x24 ../build/colorlight_i5/software/libc/libc.a(libc_string_strnlen.c.o)
-                0x400009f0                strnlen
- .text.fgetc    0x40000a14       0x7c ../build/colorlight_i5/software/libc/libc.a(libc_tinystdio_fgetc.c.o)
-                0x40000a14                getc
-                0x40000a14                fgetc
- .text.fputs    0x40000a90       0x68 ../build/colorlight_i5/software/libc/libc.a(libc_tinystdio_fputs.c.o)
-                0x40000a90                fputs
- .text.printf   0x40000af8       0x48 ../build/colorlight_i5/software/libc/libc.a(libc_tinystdio_printf.c.o)
-                0x40000af8                printf
- .text.puts     0x40000b40       0x7c ../build/colorlight_i5/software/libc/libc.a(libc_tinystdio_puts.c.o)
-                0x40000b40                puts
- .text.strtol   0x40000bbc      0x15c ../build/colorlight_i5/software/libc/libc.a(libc_tinystdio_strtol.c.o)
-                0x40000bbc                strtol
+ .text          0x400002ec      0x1f0 main.o
+ .text.startup  0x400004dc      0xa50 main.o
+                0x400004dc                main
+ .text.strcmp   0x40000f2c       0x20 ../build/colorlight_i5/software/libc/libc.a(strcmp.S.o)
+                0x40000f2c                strcmp
+ .text.strlen   0x40000f4c       0x1c ../build/colorlight_i5/software/libc/libc.a(strlen.c.o)
+                0x40000f4c                strlen
+ .text.atoi     0x40000f68        0xc ../build/colorlight_i5/software/libc/libc.a(libc_stdlib_atoi.c.o)
+                0x40000f68                atoi
+ .text.strchr   0x40000f74       0x2c ../build/colorlight_i5/software/libc/libc.a(libc_string_strchr.c.o)
+                0x40000f74                strchr
+ .text.strnlen  0x40000fa0       0x24 ../build/colorlight_i5/software/libc/libc.a(libc_string_strnlen.c.o)
+                0x40000fa0                strnlen
+ .text.fgetc    0x40000fc4       0x7c ../build/colorlight_i5/software/libc/libc.a(libc_tinystdio_fgetc.c.o)
+                0x40000fc4                getc
+                0x40000fc4                fgetc
+ .text.fputs    0x40001040       0x68 ../build/colorlight_i5/software/libc/libc.a(libc_tinystdio_fputs.c.o)
+                0x40001040                fputs
+ .text.printf   0x400010a8       0x48 ../build/colorlight_i5/software/libc/libc.a(libc_tinystdio_printf.c.o)
+                0x400010a8                printf
+ .text.puts     0x400010f0       0x7c ../build/colorlight_i5/software/libc/libc.a(libc_tinystdio_puts.c.o)
+                0x400010f0                puts
+ .text.strtol   0x4000116c      0x15c ../build/colorlight_i5/software/libc/libc.a(libc_tinystdio_strtol.c.o)
+                0x4000116c                strtol
  .text.__ultoa_invert
-                0x40000d18       0xf4 ../build/colorlight_i5/software/libc/libc.a(libc_tinystdio_vfiprintf.c.o)
+                0x400012c8       0xf4 ../build/colorlight_i5/software/libc/libc.a(libc_tinystdio_vfiprintf.c.o)
  .text.vfprintf
-                0x40000e0c      0x714 ../build/colorlight_i5/software/libc/libc.a(libc_tinystdio_vfiprintf.c.o)
-                0x40000e0c                __i_vfprintf
-                0x40000e0c                vfprintf
- .text          0x40001520       0x5c ../build/colorlight_i5/software/libc/libc.a(_libc.a)
- .text          0x4000157c      0x30c ../build/colorlight_i5/software/libcompiler_rt/libcompiler_rt.a(udivmoddi4.o)
-                0x4000157c                __udivmoddi4
- .text          0x40001888       0x90 ../build/colorlight_i5/software/libcompiler_rt/libcompiler_rt.a(clzsi2.o)
-                0x40001888                __clzsi2
- .text          0x40001918       0x74 ../build/colorlight_i5/software/libcompiler_rt/libcompiler_rt.a(ctzsi2.o)
-                0x40001918                __ctzsi2
- .text          0x4000198c        0x8 ../build/colorlight_i5/software/libcompiler_rt/libcompiler_rt.a(udivdi3.o)
-                0x4000198c                __udivdi3
- .text          0x40001994       0x24 ../build/colorlight_i5/software/libcompiler_rt/libcompiler_rt.a(umoddi3.o)
-                0x40001994                __umoddi3
- .text          0x400019b8        0x4 ../build/colorlight_i5/software/libbase/libbase.a(console.o)
-                0x400019b8                readchar_nonblock
- .text          0x400019bc      0x2dc ../build/colorlight_i5/software/libbase/libbase.a(uart.o)
-                0x400019bc                uart_isr
-                0x40001ab4                uart_read
-                0x40001b04                uart_read_nonblock
-                0x40001b20                uart_write
-                0x40001c08                uart_init
-                0x40001c80                uart_sync
- .text          0x40001c98      0x158 ../build/colorlight_i5/software/libbase/libbase.a(isr.o)
-                0x40001c98                irq_attach
-                0x40001d1c                irq_detach
-                0x40001d24                isr
-                0x40001df0                        _etext = .
+                0x400013bc      0x714 ../build/colorlight_i5/software/libc/libc.a(libc_tinystdio_vfiprintf.c.o)
+                0x400013bc                __i_vfprintf
+                0x400013bc                vfprintf
+ .text          0x40001ad0       0x5c ../build/colorlight_i5/software/libc/libc.a(_libc.a)
+ .text          0x40001b2c      0x30c ../build/colorlight_i5/software/libcompiler_rt/libcompiler_rt.a(udivmoddi4.o)
+                0x40001b2c                __udivmoddi4
+ .text          0x40001e38       0x90 ../build/colorlight_i5/software/libcompiler_rt/libcompiler_rt.a(clzsi2.o)
+                0x40001e38                __clzsi2
+ .text          0x40001ec8       0x74 ../build/colorlight_i5/software/libcompiler_rt/libcompiler_rt.a(ctzsi2.o)
+                0x40001ec8                __ctzsi2
+ .text          0x40001f3c        0x8 ../build/colorlight_i5/software/libcompiler_rt/libcompiler_rt.a(udivdi3.o)
+                0x40001f3c                __udivdi3
+ .text          0x40001f44       0x24 ../build/colorlight_i5/software/libcompiler_rt/libcompiler_rt.a(umoddi3.o)
+                0x40001f44                __umoddi3
+ .text          0x40001f68        0x4 ../build/colorlight_i5/software/libbase/libbase.a(console.o)
+                0x40001f68                readchar_nonblock
+ .text          0x40001f6c      0x2dc ../build/colorlight_i5/software/libbase/libbase.a(uart.o)
+                0x40001f6c                uart_isr
+                0x40002064                uart_read
+                0x400020b4                uart_read_nonblock
+                0x400020d0                uart_write
+                0x400021b8                uart_init
+                0x40002230                uart_sync
+ .text          0x40002248      0x158 ../build/colorlight_i5/software/libbase/libbase.a(isr.o)
+                0x40002248                irq_attach
+                0x400022cc                irq_detach
+                0x400022d4                isr
+                0x400023a0                        _etext = .
 
-.rodata         0x40001df0      0x51c
-                0x40001df0                        . = ALIGN (0x4)
-                0x40001df0                        _frodata = .
+.rodata         0x400023a0      0xb3c
+                0x400023a0                        . = ALIGN (0x4)
+                0x400023a0                        _frodata = .
  *(.rodata .rodata.* .gnu.linkonce.r.*)
  .rodata.str1.4
-                0x40001df0      0x48b main.o
-                                0x44a (size before relaxing)
+                0x400023a0      0xaab main.o
+                                0xa6e (size before relaxing)
  .rodata.str1.4
-                0x4000227b        0x0 ../build/colorlight_i5/software/libc/libc.a(libc_tinystdio_vfiprintf.c.o)
+                0x40002e4b        0x0 ../build/colorlight_i5/software/libc/libc.a(libc_tinystdio_vfiprintf.c.o)
                                  0x10 (size before relaxing)
- *fill*         0x4000227b        0x1 
- .rodata        0x4000227c       0x90 ../build/colorlight_i5/software/libc/libc.a(libc_tinystdio_vfiprintf.c.o)
+ *fill*         0x40002e4b        0x1 
+ .rodata        0x40002e4c       0x90 ../build/colorlight_i5/software/libc/libc.a(libc_tinystdio_vfiprintf.c.o)
  .rodata.str1.4
-                0x4000230c        0x0 ../build/colorlight_i5/software/libbase/libbase.a(isr.o)
+                0x40002edc        0x0 ../build/colorlight_i5/software/libbase/libbase.a(isr.o)
                                  0x2f (size before relaxing)
  *(.rodata1)
-                0x4000230c                        _erodata = .
+                0x40002edc                        _erodata = .
 
-.srodata        0x4000230c        0xc
- .srodata       0x4000230c        0xc ../build/colorlight_i5/software/libc/libc.a(_libc.a)
-                0x4000230c                stdin
-                0x40002310                stderr
-                0x40002314                stdout
+.srodata        0x40002edc        0xc
+ .srodata       0x40002edc        0xc ../build/colorlight_i5/software/libc/libc.a(_libc.a)
+                0x40002edc                stdin
+                0x40002ee0                stderr
+                0x40002ee4                stdout
 
-.rela.dyn       0x40002318        0x0
- .rela.text     0x40002318        0x0 crt0.o
+.rela.dyn       0x40002ee8        0x0
+ .rela.text     0x40002ee8        0x0 crt0.o
 
-.data           0x40002318       0x10
-                0x40002318                        . = ALIGN (0x4)
-                0x40002318                        _fdata = .
+.data           0x40002ee8       0x10
+                0x40002ee8                        . = ALIGN (0x4)
+                0x40002ee8                        _fdata = .
  *(.data .data.* .gnu.linkonce.d.*)
- .data          0x40002318       0x10 ../build/colorlight_i5/software/libc/libc.a(_libc.a)
+ .data          0x40002ee8       0x10 ../build/colorlight_i5/software/libc/libc.a(_libc.a)
  *(.data1)
-                0x40002330                        _gp = ALIGN (0x10)
+                0x40002f00                        _gp = ALIGN (0x10)
  *(.sdata .sdata.* .gnu.linkonce.s.*)
-                0x40002328                        _edata = .
+                0x40002ef8                        _edata = .
 
-.bss            0x01000000      0x5f8
+.bss            0x01000000      0x63c
                 0x01000000                        . = ALIGN (0x4)
                 0x01000000                        _fbss = .
  *(.dynsbss)
  *(.sbss .sbss.* .gnu.linkonce.sb.*)
- .sbss          0x01000000        0x4 main.o
- .sbss          0x01000004        0x4 ../build/colorlight_i5/software/libc/libc.a(libc_errno_errno.c.o)
-                0x01000004                errno
- .sbss          0x01000008       0x10 ../build/colorlight_i5/software/libbase/libbase.a(uart.o)
+ .sbss          0x01000000        0x8 main.o
+ .sbss          0x01000008        0x4 ../build/colorlight_i5/software/libc/libc.a(libc_errno_errno.c.o)
+                0x01000008                errno
+ .sbss          0x0100000c       0x10 ../build/colorlight_i5/software/libbase/libbase.a(uart.o)
  *(.scommon)
  *(.dynbss)
  *(.bss .bss.* .gnu.linkonce.b.*)
- .bss           0x01000018      0x48c crt0.o
-                0x01000498                _irq_pending
-                0x0100049c                _irq_mask
-                0x010004a0                _irq_enabled
- .bss           0x010004a4       0x40 main.o
- .bss           0x010004e4      0x100 ../build/colorlight_i5/software/libbase/libbase.a(uart.o)
- .bss           0x010005e4       0x14 ../build/colorlight_i5/software/libbase/libbase.a(isr.o)
-                0x010005e4                irq_table
+ .bss           0x0100001c      0x48c crt0.o
+                0x0100049c                _irq_pending
+                0x010004a0                _irq_mask
+                0x010004a4                _irq_enabled
+ .bss           0x010004a8       0x80 main.o
+ .bss           0x01000528      0x100 ../build/colorlight_i5/software/libbase/libbase.a(uart.o)
+ .bss           0x01000628       0x14 ../build/colorlight_i5/software/libbase/libbase.a(isr.o)
+                0x01000628                irq_table
  *(COMMON)
-                0x010005f8                        . = ALIGN (0x4)
-                0x010005f8                        _ebss = .
-                0x010005f8                        _end = .
+                0x0100063c                        . = ALIGN (0x4)
+                0x0100063c                        _ebss = .
+                0x0100063c                        _end = .
                 0x01001ffc                        PROVIDE (_fstack = ((ORIGIN (sram) + LENGTH (sram)) - 0x4))
-                0x40002318                        PROVIDE (_fdata_rom = LOADADDR (.data))
+                0x40002ee8                        PROVIDE (_fdata_rom = LOADADDR (.data))
                 [!provide]                        PROVIDE (_edata_rom = (LOADADDR (.data) + SIZEOF (.data)))
 OUTPUT(main.elf elf32-littleriscv)
 
@@ -66272,30 +66272,30 @@ OUTPUT(main.elf elf32-littleriscv)
  .note.GNU-stack
                 0x00000000        0x0 ../build/colorlight_i5/software/libbase/libbase.a(isr.o)
 
-.debug_line     0x00000000     0x4c21
+.debug_line     0x00000000     0x58ed
  .debug_line    0x00000000      0x3ce crt0.o
- .debug_line    0x000003ce     0x100f main.o
- .debug_line    0x000013dd       0x74 ../build/colorlight_i5/software/libc/libc.a(strcmp.S.o)
- .debug_line    0x00001451       0xf4 ../build/colorlight_i5/software/libc/libc.a(strlen.c.o)
- .debug_line    0x00001545       0x80 ../build/colorlight_i5/software/libc/libc.a(libc_errno_errno.c.o)
- .debug_line    0x000015c5       0xb1 ../build/colorlight_i5/software/libc/libc.a(libc_stdlib_atoi.c.o)
- .debug_line    0x00001676      0x132 ../build/colorlight_i5/software/libc/libc.a(libc_string_strchr.c.o)
- .debug_line    0x000017a8      0x10d ../build/colorlight_i5/software/libc/libc.a(libc_string_strnlen.c.o)
- .debug_line    0x000018b5      0x1eb ../build/colorlight_i5/software/libc/libc.a(libc_tinystdio_fgetc.c.o)
- .debug_line    0x00001aa0      0x159 ../build/colorlight_i5/software/libc/libc.a(libc_tinystdio_fputs.c.o)
- .debug_line    0x00001bf9      0x122 ../build/colorlight_i5/software/libc/libc.a(libc_tinystdio_printf.c.o)
- .debug_line    0x00001d1b      0x18b ../build/colorlight_i5/software/libc/libc.a(libc_tinystdio_puts.c.o)
- .debug_line    0x00001ea6      0x424 ../build/colorlight_i5/software/libc/libc.a(libc_tinystdio_strtol.c.o)
- .debug_line    0x000022ca      0xf3d ../build/colorlight_i5/software/libc/libc.a(libc_tinystdio_vfiprintf.c.o)
- .debug_line    0x00003207      0x18e ../build/colorlight_i5/software/libc/libc.a(_libc.a)
- .debug_line    0x00003395      0x65f ../build/colorlight_i5/software/libcompiler_rt/libcompiler_rt.a(udivmoddi4.o)
- .debug_line    0x000039f4      0x1bd ../build/colorlight_i5/software/libcompiler_rt/libcompiler_rt.a(clzsi2.o)
- .debug_line    0x00003bb1      0x1b3 ../build/colorlight_i5/software/libcompiler_rt/libcompiler_rt.a(ctzsi2.o)
- .debug_line    0x00003d64       0xcf ../build/colorlight_i5/software/libcompiler_rt/libcompiler_rt.a(udivdi3.o)
- .debug_line    0x00003e33       0xef ../build/colorlight_i5/software/libcompiler_rt/libcompiler_rt.a(umoddi3.o)
- .debug_line    0x00003f22       0xc5 ../build/colorlight_i5/software/libbase/libbase.a(console.o)
- .debug_line    0x00003fe7      0x898 ../build/colorlight_i5/software/libbase/libbase.a(uart.o)
- .debug_line    0x0000487f      0x3a2 ../build/colorlight_i5/software/libbase/libbase.a(isr.o)
+ .debug_line    0x000003ce     0x1cdb main.o
+ .debug_line    0x000020a9       0x74 ../build/colorlight_i5/software/libc/libc.a(strcmp.S.o)
+ .debug_line    0x0000211d       0xf4 ../build/colorlight_i5/software/libc/libc.a(strlen.c.o)
+ .debug_line    0x00002211       0x80 ../build/colorlight_i5/software/libc/libc.a(libc_errno_errno.c.o)
+ .debug_line    0x00002291       0xb1 ../build/colorlight_i5/software/libc/libc.a(libc_stdlib_atoi.c.o)
+ .debug_line    0x00002342      0x132 ../build/colorlight_i5/software/libc/libc.a(libc_string_strchr.c.o)
+ .debug_line    0x00002474      0x10d ../build/colorlight_i5/software/libc/libc.a(libc_string_strnlen.c.o)
+ .debug_line    0x00002581      0x1eb ../build/colorlight_i5/software/libc/libc.a(libc_tinystdio_fgetc.c.o)
+ .debug_line    0x0000276c      0x159 ../build/colorlight_i5/software/libc/libc.a(libc_tinystdio_fputs.c.o)
+ .debug_line    0x000028c5      0x122 ../build/colorlight_i5/software/libc/libc.a(libc_tinystdio_printf.c.o)
+ .debug_line    0x000029e7      0x18b ../build/colorlight_i5/software/libc/libc.a(libc_tinystdio_puts.c.o)
+ .debug_line    0x00002b72      0x424 ../build/colorlight_i5/software/libc/libc.a(libc_tinystdio_strtol.c.o)
+ .debug_line    0x00002f96      0xf3d ../build/colorlight_i5/software/libc/libc.a(libc_tinystdio_vfiprintf.c.o)
+ .debug_line    0x00003ed3      0x18e ../build/colorlight_i5/software/libc/libc.a(_libc.a)
+ .debug_line    0x00004061      0x65f ../build/colorlight_i5/software/libcompiler_rt/libcompiler_rt.a(udivmoddi4.o)
+ .debug_line    0x000046c0      0x1bd ../build/colorlight_i5/software/libcompiler_rt/libcompiler_rt.a(clzsi2.o)
+ .debug_line    0x0000487d      0x1b3 ../build/colorlight_i5/software/libcompiler_rt/libcompiler_rt.a(ctzsi2.o)
+ .debug_line    0x00004a30       0xcf ../build/colorlight_i5/software/libcompiler_rt/libcompiler_rt.a(udivdi3.o)
+ .debug_line    0x00004aff       0xef ../build/colorlight_i5/software/libcompiler_rt/libcompiler_rt.a(umoddi3.o)
+ .debug_line    0x00004bee       0xc5 ../build/colorlight_i5/software/libbase/libbase.a(console.o)
+ .debug_line    0x00004cb3      0x898 ../build/colorlight_i5/software/libbase/libbase.a(uart.o)
+ .debug_line    0x0000554b      0x3a2 ../build/colorlight_i5/software/libbase/libbase.a(isr.o)
 
 .debug_line_str
                 0x00000000      0xf87
@@ -66369,55 +66369,55 @@ OUTPUT(main.elf elf32-littleriscv)
                 0x00000f87        0x0 ../build/colorlight_i5/software/libbase/libbase.a(isr.o)
                                 0x58e (size before relaxing)
 
-.debug_info     0x00000000     0x3f8b
+.debug_info     0x00000000     0x50b0
  .debug_info    0x00000000       0x25 crt0.o
- .debug_info    0x00000025     0x16f7 main.o
- .debug_info    0x0000171c       0x31 ../build/colorlight_i5/software/libc/libc.a(strcmp.S.o)
- .debug_info    0x0000174d       0xde ../build/colorlight_i5/software/libc/libc.a(strlen.c.o)
- .debug_info    0x0000182b       0x50 ../build/colorlight_i5/software/libc/libc.a(libc_errno_errno.c.o)
- .debug_info    0x0000187b      0x10c ../build/colorlight_i5/software/libc/libc.a(libc_stdlib_atoi.c.o)
- .debug_info    0x00001987       0xfd ../build/colorlight_i5/software/libc/libc.a(libc_string_strchr.c.o)
- .debug_info    0x00001a84       0xee ../build/colorlight_i5/software/libc/libc.a(libc_string_strnlen.c.o)
- .debug_info    0x00001b72      0x232 ../build/colorlight_i5/software/libc/libc.a(libc_tinystdio_fgetc.c.o)
- .debug_info    0x00001da4      0x1d8 ../build/colorlight_i5/software/libc/libc.a(libc_tinystdio_fputs.c.o)
- .debug_info    0x00001f7c      0x218 ../build/colorlight_i5/software/libc/libc.a(libc_tinystdio_printf.c.o)
- .debug_info    0x00002194      0x1e5 ../build/colorlight_i5/software/libc/libc.a(libc_tinystdio_puts.c.o)
- .debug_info    0x00002379      0x1ed ../build/colorlight_i5/software/libc/libc.a(libc_tinystdio_strtol.c.o)
- .debug_info    0x00002566      0x59a ../build/colorlight_i5/software/libc/libc.a(libc_tinystdio_vfiprintf.c.o)
- .debug_info    0x00002b00      0x277 ../build/colorlight_i5/software/libc/libc.a(_libc.a)
- .debug_info    0x00002d77      0x240 ../build/colorlight_i5/software/libcompiler_rt/libcompiler_rt.a(udivmoddi4.o)
- .debug_info    0x00002fb7      0x108 ../build/colorlight_i5/software/libcompiler_rt/libcompiler_rt.a(clzsi2.o)
- .debug_info    0x000030bf      0x108 ../build/colorlight_i5/software/libcompiler_rt/libcompiler_rt.a(ctzsi2.o)
- .debug_info    0x000031c7      0x12f ../build/colorlight_i5/software/libcompiler_rt/libcompiler_rt.a(udivdi3.o)
- .debug_info    0x000032f6      0x13d ../build/colorlight_i5/software/libcompiler_rt/libcompiler_rt.a(umoddi3.o)
- .debug_info    0x00003433       0x9d ../build/colorlight_i5/software/libbase/libbase.a(console.o)
- .debug_info    0x000034d0      0x74f ../build/colorlight_i5/software/libbase/libbase.a(uart.o)
- .debug_info    0x00003c1f      0x36c ../build/colorlight_i5/software/libbase/libbase.a(isr.o)
+ .debug_info    0x00000025     0x281c main.o
+ .debug_info    0x00002841       0x31 ../build/colorlight_i5/software/libc/libc.a(strcmp.S.o)
+ .debug_info    0x00002872       0xde ../build/colorlight_i5/software/libc/libc.a(strlen.c.o)
+ .debug_info    0x00002950       0x50 ../build/colorlight_i5/software/libc/libc.a(libc_errno_errno.c.o)
+ .debug_info    0x000029a0      0x10c ../build/colorlight_i5/software/libc/libc.a(libc_stdlib_atoi.c.o)
+ .debug_info    0x00002aac       0xfd ../build/colorlight_i5/software/libc/libc.a(libc_string_strchr.c.o)
+ .debug_info    0x00002ba9       0xee ../build/colorlight_i5/software/libc/libc.a(libc_string_strnlen.c.o)
+ .debug_info    0x00002c97      0x232 ../build/colorlight_i5/software/libc/libc.a(libc_tinystdio_fgetc.c.o)
+ .debug_info    0x00002ec9      0x1d8 ../build/colorlight_i5/software/libc/libc.a(libc_tinystdio_fputs.c.o)
+ .debug_info    0x000030a1      0x218 ../build/colorlight_i5/software/libc/libc.a(libc_tinystdio_printf.c.o)
+ .debug_info    0x000032b9      0x1e5 ../build/colorlight_i5/software/libc/libc.a(libc_tinystdio_puts.c.o)
+ .debug_info    0x0000349e      0x1ed ../build/colorlight_i5/software/libc/libc.a(libc_tinystdio_strtol.c.o)
+ .debug_info    0x0000368b      0x59a ../build/colorlight_i5/software/libc/libc.a(libc_tinystdio_vfiprintf.c.o)
+ .debug_info    0x00003c25      0x277 ../build/colorlight_i5/software/libc/libc.a(_libc.a)
+ .debug_info    0x00003e9c      0x240 ../build/colorlight_i5/software/libcompiler_rt/libcompiler_rt.a(udivmoddi4.o)
+ .debug_info    0x000040dc      0x108 ../build/colorlight_i5/software/libcompiler_rt/libcompiler_rt.a(clzsi2.o)
+ .debug_info    0x000041e4      0x108 ../build/colorlight_i5/software/libcompiler_rt/libcompiler_rt.a(ctzsi2.o)
+ .debug_info    0x000042ec      0x12f ../build/colorlight_i5/software/libcompiler_rt/libcompiler_rt.a(udivdi3.o)
+ .debug_info    0x0000441b      0x13d ../build/colorlight_i5/software/libcompiler_rt/libcompiler_rt.a(umoddi3.o)
+ .debug_info    0x00004558       0x9d ../build/colorlight_i5/software/libbase/libbase.a(console.o)
+ .debug_info    0x000045f5      0x74f ../build/colorlight_i5/software/libbase/libbase.a(uart.o)
+ .debug_info    0x00004d44      0x36c ../build/colorlight_i5/software/libbase/libbase.a(isr.o)
 
-.debug_abbrev   0x00000000     0x1b02
+.debug_abbrev   0x00000000     0x1b68
  .debug_abbrev  0x00000000       0x14 crt0.o
- .debug_abbrev  0x00000014      0x44f main.o
- .debug_abbrev  0x00000463       0x28 ../build/colorlight_i5/software/libc/libc.a(strcmp.S.o)
- .debug_abbrev  0x0000048b       0x96 ../build/colorlight_i5/software/libc/libc.a(strlen.c.o)
- .debug_abbrev  0x00000521       0x50 ../build/colorlight_i5/software/libc/libc.a(libc_errno_errno.c.o)
- .debug_abbrev  0x00000571       0xac ../build/colorlight_i5/software/libc/libc.a(libc_stdlib_atoi.c.o)
- .debug_abbrev  0x0000061d       0x8a ../build/colorlight_i5/software/libc/libc.a(libc_string_strchr.c.o)
- .debug_abbrev  0x000006a7       0x97 ../build/colorlight_i5/software/libc/libc.a(libc_string_strnlen.c.o)
- .debug_abbrev  0x0000073e      0x183 ../build/colorlight_i5/software/libc/libc.a(libc_tinystdio_fgetc.c.o)
- .debug_abbrev  0x000008c1      0x125 ../build/colorlight_i5/software/libc/libc.a(libc_tinystdio_fputs.c.o)
- .debug_abbrev  0x000009e6      0x159 ../build/colorlight_i5/software/libc/libc.a(libc_tinystdio_printf.c.o)
- .debug_abbrev  0x00000b3f      0x12d ../build/colorlight_i5/software/libc/libc.a(libc_tinystdio_puts.c.o)
- .debug_abbrev  0x00000c6c      0x111 ../build/colorlight_i5/software/libc/libc.a(libc_tinystdio_strtol.c.o)
- .debug_abbrev  0x00000d7d      0x25b ../build/colorlight_i5/software/libc/libc.a(libc_tinystdio_vfiprintf.c.o)
- .debug_abbrev  0x00000fd8      0x19a ../build/colorlight_i5/software/libc/libc.a(_libc.a)
- .debug_abbrev  0x00001172      0x13b ../build/colorlight_i5/software/libcompiler_rt/libcompiler_rt.a(udivmoddi4.o)
- .debug_abbrev  0x000012ad       0x82 ../build/colorlight_i5/software/libcompiler_rt/libcompiler_rt.a(clzsi2.o)
- .debug_abbrev  0x0000132f       0x82 ../build/colorlight_i5/software/libcompiler_rt/libcompiler_rt.a(ctzsi2.o)
- .debug_abbrev  0x000013b1       0xa8 ../build/colorlight_i5/software/libcompiler_rt/libcompiler_rt.a(udivdi3.o)
- .debug_abbrev  0x00001459       0xb6 ../build/colorlight_i5/software/libcompiler_rt/libcompiler_rt.a(umoddi3.o)
- .debug_abbrev  0x0000150f       0x68 ../build/colorlight_i5/software/libbase/libbase.a(console.o)
- .debug_abbrev  0x00001577      0x2e5 ../build/colorlight_i5/software/libbase/libbase.a(uart.o)
- .debug_abbrev  0x0000185c      0x2a6 ../build/colorlight_i5/software/libbase/libbase.a(isr.o)
+ .debug_abbrev  0x00000014      0x4b5 main.o
+ .debug_abbrev  0x000004c9       0x28 ../build/colorlight_i5/software/libc/libc.a(strcmp.S.o)
+ .debug_abbrev  0x000004f1       0x96 ../build/colorlight_i5/software/libc/libc.a(strlen.c.o)
+ .debug_abbrev  0x00000587       0x50 ../build/colorlight_i5/software/libc/libc.a(libc_errno_errno.c.o)
+ .debug_abbrev  0x000005d7       0xac ../build/colorlight_i5/software/libc/libc.a(libc_stdlib_atoi.c.o)
+ .debug_abbrev  0x00000683       0x8a ../build/colorlight_i5/software/libc/libc.a(libc_string_strchr.c.o)
+ .debug_abbrev  0x0000070d       0x97 ../build/colorlight_i5/software/libc/libc.a(libc_string_strnlen.c.o)
+ .debug_abbrev  0x000007a4      0x183 ../build/colorlight_i5/software/libc/libc.a(libc_tinystdio_fgetc.c.o)
+ .debug_abbrev  0x00000927      0x125 ../build/colorlight_i5/software/libc/libc.a(libc_tinystdio_fputs.c.o)
+ .debug_abbrev  0x00000a4c      0x159 ../build/colorlight_i5/software/libc/libc.a(libc_tinystdio_printf.c.o)
+ .debug_abbrev  0x00000ba5      0x12d ../build/colorlight_i5/software/libc/libc.a(libc_tinystdio_puts.c.o)
+ .debug_abbrev  0x00000cd2      0x111 ../build/colorlight_i5/software/libc/libc.a(libc_tinystdio_strtol.c.o)
+ .debug_abbrev  0x00000de3      0x25b ../build/colorlight_i5/software/libc/libc.a(libc_tinystdio_vfiprintf.c.o)
+ .debug_abbrev  0x0000103e      0x19a ../build/colorlight_i5/software/libc/libc.a(_libc.a)
+ .debug_abbrev  0x000011d8      0x13b ../build/colorlight_i5/software/libcompiler_rt/libcompiler_rt.a(udivmoddi4.o)
+ .debug_abbrev  0x00001313       0x82 ../build/colorlight_i5/software/libcompiler_rt/libcompiler_rt.a(clzsi2.o)
+ .debug_abbrev  0x00001395       0x82 ../build/colorlight_i5/software/libcompiler_rt/libcompiler_rt.a(ctzsi2.o)
+ .debug_abbrev  0x00001417       0xa8 ../build/colorlight_i5/software/libcompiler_rt/libcompiler_rt.a(udivdi3.o)
+ .debug_abbrev  0x000014bf       0xb6 ../build/colorlight_i5/software/libcompiler_rt/libcompiler_rt.a(umoddi3.o)
+ .debug_abbrev  0x00001575       0x68 ../build/colorlight_i5/software/libbase/libbase.a(console.o)
+ .debug_abbrev  0x000015dd      0x2e5 ../build/colorlight_i5/software/libbase/libbase.a(uart.o)
+ .debug_abbrev  0x000018c2      0x2a6 ../build/colorlight_i5/software/libbase/libbase.a(isr.o)
 
 .debug_aranges  0x00000000      0x2e8
  .debug_aranges
@@ -66467,127 +66467,127 @@ OUTPUT(main.elf elf32-littleriscv)
  .debug_aranges
                 0x000002c8       0x20 ../build/colorlight_i5/software/libbase/libbase.a(isr.o)
 
-.debug_str      0x00000000     0xeec6
- .debug_str     0x00000000     0xeec6 crt0.o
+.debug_str      0x00000000     0xf193
+ .debug_str     0x00000000     0xf193 crt0.o
                                  0x94 (size before relaxing)
- .debug_str     0x0000eec6        0x0 main.o
-                               0xae87 (size before relaxing)
- .debug_str     0x0000eec6        0x0 ../build/colorlight_i5/software/libc/libc.a(strcmp.S.o)
+ .debug_str     0x0000f193        0x0 main.o
+                               0xb154 (size before relaxing)
+ .debug_str     0x0000f193        0x0 ../build/colorlight_i5/software/libc/libc.a(strcmp.S.o)
                                  0x94 (size before relaxing)
- .debug_str     0x0000eec6        0x0 ../build/colorlight_i5/software/libc/libc.a(strlen.c.o)
+ .debug_str     0x0000f193        0x0 ../build/colorlight_i5/software/libc/libc.a(strlen.c.o)
                                0x6e41 (size before relaxing)
- .debug_str     0x0000eec6        0x0 ../build/colorlight_i5/software/libc/libc.a(libc_errno_errno.c.o)
+ .debug_str     0x0000f193        0x0 ../build/colorlight_i5/software/libc/libc.a(libc_errno_errno.c.o)
                                0x4b84 (size before relaxing)
- .debug_str     0x0000eec6        0x0 ../build/colorlight_i5/software/libc/libc.a(libc_stdlib_atoi.c.o)
+ .debug_str     0x0000f193        0x0 ../build/colorlight_i5/software/libc/libc.a(libc_stdlib_atoi.c.o)
                                0x639c (size before relaxing)
- .debug_str     0x0000eec6        0x0 ../build/colorlight_i5/software/libc/libc.a(libc_string_strchr.c.o)
+ .debug_str     0x0000f193        0x0 ../build/colorlight_i5/software/libc/libc.a(libc_string_strchr.c.o)
                                0x72da (size before relaxing)
- .debug_str     0x0000eec6        0x0 ../build/colorlight_i5/software/libc/libc.a(libc_string_strnlen.c.o)
+ .debug_str     0x0000f193        0x0 ../build/colorlight_i5/software/libc/libc.a(libc_string_strnlen.c.o)
                                0x64a3 (size before relaxing)
- .debug_str     0x0000eec6        0x0 ../build/colorlight_i5/software/libc/libc.a(libc_tinystdio_fgetc.c.o)
+ .debug_str     0x0000f193        0x0 ../build/colorlight_i5/software/libc/libc.a(libc_tinystdio_fgetc.c.o)
                                0x92a0 (size before relaxing)
- .debug_str     0x0000eec6        0x0 ../build/colorlight_i5/software/libc/libc.a(libc_tinystdio_fputs.c.o)
+ .debug_str     0x0000f193        0x0 ../build/colorlight_i5/software/libc/libc.a(libc_tinystdio_fputs.c.o)
                                0x9283 (size before relaxing)
- .debug_str     0x0000eec6        0x0 ../build/colorlight_i5/software/libc/libc.a(libc_tinystdio_printf.c.o)
+ .debug_str     0x0000f193        0x0 ../build/colorlight_i5/software/libc/libc.a(libc_tinystdio_printf.c.o)
                                0x710a (size before relaxing)
- .debug_str     0x0000eec6        0x0 ../build/colorlight_i5/software/libc/libc.a(libc_tinystdio_puts.c.o)
+ .debug_str     0x0000f193        0x0 ../build/colorlight_i5/software/libc/libc.a(libc_tinystdio_puts.c.o)
                                0x9282 (size before relaxing)
- .debug_str     0x0000eec6        0x0 ../build/colorlight_i5/software/libc/libc.a(libc_tinystdio_strtol.c.o)
+ .debug_str     0x0000f193        0x0 ../build/colorlight_i5/software/libc/libc.a(libc_tinystdio_strtol.c.o)
                                0xa039 (size before relaxing)
- .debug_str     0x0000eec6        0x0 ../build/colorlight_i5/software/libc/libc.a(libc_tinystdio_vfiprintf.c.o)
+ .debug_str     0x0000f193        0x0 ../build/colorlight_i5/software/libc/libc.a(libc_tinystdio_vfiprintf.c.o)
                                0xb6e3 (size before relaxing)
- .debug_str     0x0000eec6        0x0 ../build/colorlight_i5/software/libc/libc.a(_libc.a)
-                               0x93aa (size before relaxing)
- .debug_str     0x0000eec6        0x0 ../build/colorlight_i5/software/libcompiler_rt/libcompiler_rt.a(udivmoddi4.o)
+ .debug_str     0x0000f193        0x0 ../build/colorlight_i5/software/libc/libc.a(_libc.a)
+                               0x94e3 (size before relaxing)
+ .debug_str     0x0000f193        0x0 ../build/colorlight_i5/software/libcompiler_rt/libcompiler_rt.a(udivmoddi4.o)
                                0x7220 (size before relaxing)
- .debug_str     0x0000eec6        0x0 ../build/colorlight_i5/software/libcompiler_rt/libcompiler_rt.a(clzsi2.o)
+ .debug_str     0x0000f193        0x0 ../build/colorlight_i5/software/libcompiler_rt/libcompiler_rt.a(clzsi2.o)
                                0x71d5 (size before relaxing)
- .debug_str     0x0000eec6        0x0 ../build/colorlight_i5/software/libcompiler_rt/libcompiler_rt.a(ctzsi2.o)
+ .debug_str     0x0000f193        0x0 ../build/colorlight_i5/software/libcompiler_rt/libcompiler_rt.a(ctzsi2.o)
                                0x71d5 (size before relaxing)
- .debug_str     0x0000eec6        0x0 ../build/colorlight_i5/software/libcompiler_rt/libcompiler_rt.a(udivdi3.o)
+ .debug_str     0x0000f193        0x0 ../build/colorlight_i5/software/libcompiler_rt/libcompiler_rt.a(udivdi3.o)
                                0x71dc (size before relaxing)
- .debug_str     0x0000eec6        0x0 ../build/colorlight_i5/software/libcompiler_rt/libcompiler_rt.a(umoddi3.o)
+ .debug_str     0x0000f193        0x0 ../build/colorlight_i5/software/libcompiler_rt/libcompiler_rt.a(umoddi3.o)
                                0x71dc (size before relaxing)
- .debug_str     0x0000eec6        0x0 ../build/colorlight_i5/software/libbase/libbase.a(console.o)
-                               0x726d (size before relaxing)
- .debug_str     0x0000eec6        0x0 ../build/colorlight_i5/software/libbase/libbase.a(uart.o)
-                               0x7489 (size before relaxing)
- .debug_str     0x0000eec6        0x0 ../build/colorlight_i5/software/libbase/libbase.a(isr.o)
-                               0x9385 (size before relaxing)
+ .debug_str     0x0000f193        0x0 ../build/colorlight_i5/software/libbase/libbase.a(console.o)
+                               0x73a6 (size before relaxing)
+ .debug_str     0x0000f193        0x0 ../build/colorlight_i5/software/libbase/libbase.a(uart.o)
+                               0x75c2 (size before relaxing)
+ .debug_str     0x0000f193        0x0 ../build/colorlight_i5/software/libbase/libbase.a(isr.o)
+                               0x94be (size before relaxing)
 
 .debug_loclists
-                0x00000000     0x21c4
+                0x00000000     0x2838
  .debug_loclists
-                0x00000000      0x680 main.o
+                0x00000000      0xcf4 main.o
  .debug_loclists
-                0x00000680       0x3d ../build/colorlight_i5/software/libc/libc.a(strlen.c.o)
+                0x00000cf4       0x3d ../build/colorlight_i5/software/libc/libc.a(strlen.c.o)
  .debug_loclists
-                0x000006bd       0x29 ../build/colorlight_i5/software/libc/libc.a(libc_stdlib_atoi.c.o)
+                0x00000d31       0x29 ../build/colorlight_i5/software/libc/libc.a(libc_stdlib_atoi.c.o)
  .debug_loclists
-                0x000006e6       0x80 ../build/colorlight_i5/software/libc/libc.a(libc_string_strchr.c.o)
+                0x00000d5a       0x80 ../build/colorlight_i5/software/libc/libc.a(libc_string_strchr.c.o)
  .debug_loclists
-                0x00000766       0xcc ../build/colorlight_i5/software/libc/libc.a(libc_string_strnlen.c.o)
+                0x00000dda       0xcc ../build/colorlight_i5/software/libc/libc.a(libc_string_strnlen.c.o)
  .debug_loclists
-                0x00000832       0x88 ../build/colorlight_i5/software/libc/libc.a(libc_tinystdio_fgetc.c.o)
+                0x00000ea6       0x88 ../build/colorlight_i5/software/libc/libc.a(libc_tinystdio_fgetc.c.o)
  .debug_loclists
-                0x000008ba       0x7f ../build/colorlight_i5/software/libc/libc.a(libc_tinystdio_fputs.c.o)
+                0x00000f2e       0x7f ../build/colorlight_i5/software/libc/libc.a(libc_tinystdio_fputs.c.o)
  .debug_loclists
-                0x00000939       0x3b ../build/colorlight_i5/software/libc/libc.a(libc_tinystdio_printf.c.o)
+                0x00000fad       0x3b ../build/colorlight_i5/software/libc/libc.a(libc_tinystdio_printf.c.o)
  .debug_loclists
-                0x00000974       0x63 ../build/colorlight_i5/software/libc/libc.a(libc_tinystdio_puts.c.o)
+                0x00000fe8       0x63 ../build/colorlight_i5/software/libc/libc.a(libc_tinystdio_puts.c.o)
  .debug_loclists
-                0x000009d7      0x1d6 ../build/colorlight_i5/software/libc/libc.a(libc_tinystdio_strtol.c.o)
+                0x0000104b      0x1d6 ../build/colorlight_i5/software/libc/libc.a(libc_tinystdio_strtol.c.o)
  .debug_loclists
-                0x00000bad      0x91b ../build/colorlight_i5/software/libc/libc.a(libc_tinystdio_vfiprintf.c.o)
+                0x00001221      0x91b ../build/colorlight_i5/software/libc/libc.a(libc_tinystdio_vfiprintf.c.o)
  .debug_loclists
-                0x000014c8       0x52 ../build/colorlight_i5/software/libc/libc.a(_libc.a)
+                0x00001b3c       0x52 ../build/colorlight_i5/software/libc/libc.a(_libc.a)
  .debug_loclists
-                0x0000151a      0x2c6 ../build/colorlight_i5/software/libcompiler_rt/libcompiler_rt.a(udivmoddi4.o)
+                0x00001b8e      0x2c6 ../build/colorlight_i5/software/libcompiler_rt/libcompiler_rt.a(udivmoddi4.o)
  .debug_loclists
-                0x000017e0      0x2f5 ../build/colorlight_i5/software/libcompiler_rt/libcompiler_rt.a(clzsi2.o)
+                0x00001e54      0x2f5 ../build/colorlight_i5/software/libcompiler_rt/libcompiler_rt.a(clzsi2.o)
  .debug_loclists
-                0x00001ad5      0x35d ../build/colorlight_i5/software/libcompiler_rt/libcompiler_rt.a(ctzsi2.o)
+                0x00002149      0x35d ../build/colorlight_i5/software/libcompiler_rt/libcompiler_rt.a(ctzsi2.o)
  .debug_loclists
-                0x00001e32       0x3e ../build/colorlight_i5/software/libcompiler_rt/libcompiler_rt.a(udivdi3.o)
+                0x000024a6       0x3e ../build/colorlight_i5/software/libcompiler_rt/libcompiler_rt.a(udivdi3.o)
  .debug_loclists
-                0x00001e70       0x3e ../build/colorlight_i5/software/libcompiler_rt/libcompiler_rt.a(umoddi3.o)
+                0x000024e4       0x3e ../build/colorlight_i5/software/libcompiler_rt/libcompiler_rt.a(umoddi3.o)
  .debug_loclists
-                0x00001eae      0x219 ../build/colorlight_i5/software/libbase/libbase.a(uart.o)
+                0x00002522      0x219 ../build/colorlight_i5/software/libbase/libbase.a(uart.o)
  .debug_loclists
-                0x000020c7       0xfd ../build/colorlight_i5/software/libbase/libbase.a(isr.o)
+                0x0000273b       0xfd ../build/colorlight_i5/software/libbase/libbase.a(isr.o)
 
 .debug_rnglists
-                0x00000000      0x373
+                0x00000000      0x440
  .debug_rnglists
-                0x00000000      0x12d main.o
+                0x00000000      0x1fa main.o
  .debug_rnglists
-                0x0000012d       0x13 ../build/colorlight_i5/software/libc/libc.a(strlen.c.o)
+                0x000001fa       0x13 ../build/colorlight_i5/software/libc/libc.a(strlen.c.o)
  .debug_rnglists
-                0x00000140       0x13 ../build/colorlight_i5/software/libc/libc.a(libc_stdlib_atoi.c.o)
+                0x0000020d       0x13 ../build/colorlight_i5/software/libc/libc.a(libc_stdlib_atoi.c.o)
  .debug_rnglists
-                0x00000153       0x13 ../build/colorlight_i5/software/libc/libc.a(libc_string_strchr.c.o)
+                0x00000220       0x13 ../build/colorlight_i5/software/libc/libc.a(libc_string_strchr.c.o)
  .debug_rnglists
-                0x00000166       0x13 ../build/colorlight_i5/software/libc/libc.a(libc_string_strnlen.c.o)
+                0x00000233       0x13 ../build/colorlight_i5/software/libc/libc.a(libc_string_strnlen.c.o)
  .debug_rnglists
-                0x00000179       0x13 ../build/colorlight_i5/software/libc/libc.a(libc_tinystdio_fgetc.c.o)
+                0x00000246       0x13 ../build/colorlight_i5/software/libc/libc.a(libc_tinystdio_fgetc.c.o)
  .debug_rnglists
-                0x0000018c       0x13 ../build/colorlight_i5/software/libc/libc.a(libc_tinystdio_fputs.c.o)
+                0x00000259       0x13 ../build/colorlight_i5/software/libc/libc.a(libc_tinystdio_fputs.c.o)
  .debug_rnglists
-                0x0000019f       0x13 ../build/colorlight_i5/software/libc/libc.a(libc_tinystdio_printf.c.o)
+                0x0000026c       0x13 ../build/colorlight_i5/software/libc/libc.a(libc_tinystdio_printf.c.o)
  .debug_rnglists
-                0x000001b2       0x13 ../build/colorlight_i5/software/libc/libc.a(libc_tinystdio_puts.c.o)
+                0x0000027f       0x13 ../build/colorlight_i5/software/libc/libc.a(libc_tinystdio_puts.c.o)
  .debug_rnglists
-                0x000001c5       0x14 ../build/colorlight_i5/software/libc/libc.a(libc_tinystdio_strtol.c.o)
+                0x00000292       0x14 ../build/colorlight_i5/software/libc/libc.a(libc_tinystdio_strtol.c.o)
  .debug_rnglists
-                0x000001d9       0x79 ../build/colorlight_i5/software/libc/libc.a(libc_tinystdio_vfiprintf.c.o)
+                0x000002a6       0x79 ../build/colorlight_i5/software/libc/libc.a(libc_tinystdio_vfiprintf.c.o)
  .debug_rnglists
-                0x00000252       0x17 ../build/colorlight_i5/software/libcompiler_rt/libcompiler_rt.a(udivmoddi4.o)
+                0x0000031f       0x17 ../build/colorlight_i5/software/libcompiler_rt/libcompiler_rt.a(udivmoddi4.o)
  .debug_rnglists
-                0x00000269       0xb2 ../build/colorlight_i5/software/libbase/libbase.a(uart.o)
+                0x00000336       0xb2 ../build/colorlight_i5/software/libbase/libbase.a(uart.o)
  .debug_rnglists
-                0x0000031b       0x58 ../build/colorlight_i5/software/libbase/libbase.a(isr.o)
+                0x000003e8       0x58 ../build/colorlight_i5/software/libbase/libbase.a(isr.o)
 
-.debug_macro    0x00000000     0x3fec
+.debug_macro    0x00000000     0x4016
  .debug_macro   0x00000000      0x1c4 main.o
  .debug_macro   0x000001c4      0x82c main.o
  .debug_macro   0x000009f0      0x50c main.o
@@ -66619,32 +66619,32 @@ OUTPUT(main.elf elf32-littleriscv)
  .debug_macro   0x000021fb       0x3c main.o
  .debug_macro   0x00002237       0xd6 main.o
  .debug_macro   0x0000230d       0x4a main.o
- .debug_macro   0x00002357      0x464 main.o
- .debug_macro   0x000027bb       0x16 main.o
- .debug_macro   0x000027d1       0x16 main.o
- .debug_macro   0x000027e7       0xc0 ../build/colorlight_i5/software/libc/libc.a(strlen.c.o)
- .debug_macro   0x000028a7       0x60 ../build/colorlight_i5/software/libc/libc.a(libc_errno_errno.c.o)
- .debug_macro   0x00002907       0xab ../build/colorlight_i5/software/libc/libc.a(libc_stdlib_atoi.c.o)
- .debug_macro   0x000029b2      0x10a ../build/colorlight_i5/software/libc/libc.a(libc_string_strchr.c.o)
- .debug_macro   0x00002abc       0xe6 ../build/colorlight_i5/software/libc/libc.a(libc_string_strnlen.c.o)
- .debug_macro   0x00002ba2       0x94 ../build/colorlight_i5/software/libc/libc.a(libc_string_strnlen.c.o)
- .debug_macro   0x00002c36      0x15b ../build/colorlight_i5/software/libc/libc.a(libc_tinystdio_fgetc.c.o)
- .debug_macro   0x00002d91      0x15b ../build/colorlight_i5/software/libc/libc.a(libc_tinystdio_fputs.c.o)
- .debug_macro   0x00002eec       0xf2 ../build/colorlight_i5/software/libc/libc.a(libc_tinystdio_printf.c.o)
- .debug_macro   0x00002fde      0x15b ../build/colorlight_i5/software/libc/libc.a(libc_tinystdio_puts.c.o)
- .debug_macro   0x00003139      0x223 ../build/colorlight_i5/software/libc/libc.a(libc_tinystdio_strtol.c.o)
- .debug_macro   0x0000335c      0x283 ../build/colorlight_i5/software/libc/libc.a(libc_tinystdio_vfiprintf.c.o)
- .debug_macro   0x000035df       0x16 ../build/colorlight_i5/software/libc/libc.a(libc_tinystdio_vfiprintf.c.o)
- .debug_macro   0x000035f5       0x2b ../build/colorlight_i5/software/libc/libc.a(libc_tinystdio_vfiprintf.c.o)
- .debug_macro   0x00003620       0x10 ../build/colorlight_i5/software/libc/libc.a(libc_tinystdio_vfiprintf.c.o)
- .debug_macro   0x00003630       0xb2 ../build/colorlight_i5/software/libc/libc.a(libc_tinystdio_vfiprintf.c.o)
- .debug_macro   0x000036e2      0x14a ../build/colorlight_i5/software/libc/libc.a(_libc.a)
- .debug_macro   0x0000382c       0xd6 ../build/colorlight_i5/software/libc/libc.a(_libc.a)
- .debug_macro   0x00003902       0xd4 ../build/colorlight_i5/software/libcompiler_rt/libcompiler_rt.a(udivmoddi4.o)
- .debug_macro   0x000039d6       0xd4 ../build/colorlight_i5/software/libcompiler_rt/libcompiler_rt.a(clzsi2.o)
- .debug_macro   0x00003aaa       0xd4 ../build/colorlight_i5/software/libcompiler_rt/libcompiler_rt.a(ctzsi2.o)
- .debug_macro   0x00003b7e       0xd4 ../build/colorlight_i5/software/libcompiler_rt/libcompiler_rt.a(udivdi3.o)
- .debug_macro   0x00003c52       0xd4 ../build/colorlight_i5/software/libcompiler_rt/libcompiler_rt.a(umoddi3.o)
- .debug_macro   0x00003d26       0xa3 ../build/colorlight_i5/software/libbase/libbase.a(console.o)
- .debug_macro   0x00003dc9       0xc4 ../build/colorlight_i5/software/libbase/libbase.a(uart.o)
- .debug_macro   0x00003e8d      0x15f ../build/colorlight_i5/software/libbase/libbase.a(isr.o)
+ .debug_macro   0x00002357      0x48e main.o
+ .debug_macro   0x000027e5       0x16 main.o
+ .debug_macro   0x000027fb       0x16 main.o
+ .debug_macro   0x00002811       0xc0 ../build/colorlight_i5/software/libc/libc.a(strlen.c.o)
+ .debug_macro   0x000028d1       0x60 ../build/colorlight_i5/software/libc/libc.a(libc_errno_errno.c.o)
+ .debug_macro   0x00002931       0xab ../build/colorlight_i5/software/libc/libc.a(libc_stdlib_atoi.c.o)
+ .debug_macro   0x000029dc      0x10a ../build/colorlight_i5/software/libc/libc.a(libc_string_strchr.c.o)
+ .debug_macro   0x00002ae6       0xe6 ../build/colorlight_i5/software/libc/libc.a(libc_string_strnlen.c.o)
+ .debug_macro   0x00002bcc       0x94 ../build/colorlight_i5/software/libc/libc.a(libc_string_strnlen.c.o)
+ .debug_macro   0x00002c60      0x15b ../build/colorlight_i5/software/libc/libc.a(libc_tinystdio_fgetc.c.o)
+ .debug_macro   0x00002dbb      0x15b ../build/colorlight_i5/software/libc/libc.a(libc_tinystdio_fputs.c.o)
+ .debug_macro   0x00002f16       0xf2 ../build/colorlight_i5/software/libc/libc.a(libc_tinystdio_printf.c.o)
+ .debug_macro   0x00003008      0x15b ../build/colorlight_i5/software/libc/libc.a(libc_tinystdio_puts.c.o)
+ .debug_macro   0x00003163      0x223 ../build/colorlight_i5/software/libc/libc.a(libc_tinystdio_strtol.c.o)
+ .debug_macro   0x00003386      0x283 ../build/colorlight_i5/software/libc/libc.a(libc_tinystdio_vfiprintf.c.o)
+ .debug_macro   0x00003609       0x16 ../build/colorlight_i5/software/libc/libc.a(libc_tinystdio_vfiprintf.c.o)
+ .debug_macro   0x0000361f       0x2b ../build/colorlight_i5/software/libc/libc.a(libc_tinystdio_vfiprintf.c.o)
+ .debug_macro   0x0000364a       0x10 ../build/colorlight_i5/software/libc/libc.a(libc_tinystdio_vfiprintf.c.o)
+ .debug_macro   0x0000365a       0xb2 ../build/colorlight_i5/software/libc/libc.a(libc_tinystdio_vfiprintf.c.o)
+ .debug_macro   0x0000370c      0x14a ../build/colorlight_i5/software/libc/libc.a(_libc.a)
+ .debug_macro   0x00003856       0xd6 ../build/colorlight_i5/software/libc/libc.a(_libc.a)
+ .debug_macro   0x0000392c       0xd4 ../build/colorlight_i5/software/libcompiler_rt/libcompiler_rt.a(udivmoddi4.o)
+ .debug_macro   0x00003a00       0xd4 ../build/colorlight_i5/software/libcompiler_rt/libcompiler_rt.a(clzsi2.o)
+ .debug_macro   0x00003ad4       0xd4 ../build/colorlight_i5/software/libcompiler_rt/libcompiler_rt.a(ctzsi2.o)
+ .debug_macro   0x00003ba8       0xd4 ../build/colorlight_i5/software/libcompiler_rt/libcompiler_rt.a(udivdi3.o)
+ .debug_macro   0x00003c7c       0xd4 ../build/colorlight_i5/software/libcompiler_rt/libcompiler_rt.a(umoddi3.o)
+ .debug_macro   0x00003d50       0xa3 ../build/colorlight_i5/software/libbase/libbase.a(console.o)
+ .debug_macro   0x00003df3       0xc4 ../build/colorlight_i5/software/libbase/libbase.a(uart.o)
+ .debug_macro   0x00003eb7      0x15f ../build/colorlight_i5/software/libbase/libbase.a(isr.o)

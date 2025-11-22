@@ -1,12 +1,12 @@
-# litex_wrapper_produto_escalar.py 
+# litex_wrapper_produto_escalar_v2.py
 from migen import *
 from litex.gen import *
 from litex.soc.interconnect.csr import *
 
 class ProdutoEscalar(Module, AutoCSR):
     def __init__(self, platform):
-        # Importa o módulo SystemVerilog
-        platform.add_source("rtl/produto_escalar.sv")
+        # Importa o módulo SystemVerilog COM MEDIÇÃO
+        platform.add_source("rtl/produto_escalar_pipeline.sv")
 
         # CSR de controle (pulso de start)
         self.iniciar = CSRStorage(fields=[
@@ -33,14 +33,22 @@ class ProdutoEscalar(Module, AutoCSR):
         self.vetor_b6 = CSRStorage(32, name="vetor_b6")
         self.vetor_b7 = CSRStorage(32, name="vetor_b7")
 
-        # CSRs: saídas
+        # CSRs: saídas principais
         self.concluido = CSRStatus(1, name="concluido")
         self.resultado = CSRStatus(64, name="resultado")
+        
+        # NOVOS CSRs: medição de performance (IGUAL VERSÕES 1 E 3)
+        self.latency_cycles = CSRStatus(32, name="latency_cycles")
+        self.total_operations = CSRStatus(32, name="total_operations")
+        self.measurement_valid = CSRStatus(1, name="measurement_valid")
 
         # Sinais internos
         iniciar_sig = Signal()
         concluido_sig = Signal()
         resultado_sig = Signal(64)
+        latency_sig = Signal(32)
+        total_ops_sig = Signal(32)
+        measurement_valid_sig = Signal()
         
         # Sinais para os vetores A e B
         a_sigs = [Signal(32) for _ in range(8)]
@@ -50,7 +58,10 @@ class ProdutoEscalar(Module, AutoCSR):
         self.comb += [
             iniciar_sig.eq(self.iniciar.fields.iniciar),
             self.concluido.status.eq(concluido_sig),
-            self.resultado.status.eq(resultado_sig)
+            self.resultado.status.eq(resultado_sig),
+            self.latency_cycles.status.eq(latency_sig),
+            self.total_operations.status.eq(total_ops_sig),
+            self.measurement_valid.status.eq(measurement_valid_sig)
         ]
         
         # Conexão dos vetores A
@@ -77,13 +88,16 @@ class ProdutoEscalar(Module, AutoCSR):
             b_sigs[7].eq(self.vetor_b7.storage),
         ]
 
-        # Instância do módulo SystemVerilog
-        self.specials += Instance("produto_escalar",
+        # Instância do módulo SystemVerilog COM MEDIÇÃO
+        self.specials += Instance("produto_escalar_pipeline",
             i_clk_i     = ClockSignal(),
             i_rst_i     = ResetSignal(),
             i_iniciar   = iniciar_sig,
             o_concluido = concluido_sig,
             o_resultado = resultado_sig,
+            o_latency_cycles = latency_sig,
+            o_total_operations = total_ops_sig,
+            o_measurement_valid = measurement_valid_sig,
             i_a0 = a_sigs[0], i_a1 = a_sigs[1], i_a2 = a_sigs[2], i_a3 = a_sigs[3],
             i_a4 = a_sigs[4], i_a5 = a_sigs[5], i_a6 = a_sigs[6], i_a7 = a_sigs[7],
             i_b0 = b_sigs[0], i_b1 = b_sigs[1], i_b2 = b_sigs[2], i_b3 = b_sigs[3],
