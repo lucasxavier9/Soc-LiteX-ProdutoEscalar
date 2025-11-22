@@ -1,11 +1,11 @@
-# litex_wrapper_produto_escalar.py 
+# litex_wrapper_produto_escalar_v1.py
 from migen import *
 from litex.gen import *
 from litex.soc.interconnect.csr import *
 
 class ProdutoEscalar(Module, AutoCSR):
     def __init__(self, platform):
-        # Importa o módulo SystemVerilog
+        # Importa o módulo SystemVerilog COM MEDIÇÃO
         platform.add_source("rtl/produto_escalar.sv")
 
         # CSR de controle (pulso de start)
@@ -33,24 +33,35 @@ class ProdutoEscalar(Module, AutoCSR):
         self.vetor_b6 = CSRStorage(32, name="vetor_b6")
         self.vetor_b7 = CSRStorage(32, name="vetor_b7")
 
-        # CSRs: saídas
+        # CSRs: saídas principais
         self.concluido = CSRStatus(1, name="concluido")
         self.resultado = CSRStatus(64, name="resultado")
+        
+        # NOVOS CSRs: medição de performance - ATUALIZADOS PARA PORTUGUÊS
+        self.ciclos_latencia = CSRStatus(32, name="ciclos_latencia")
+        self.total_operacoes = CSRStatus(32, name="total_operacoes")
+        self.medicao_valida = CSRStatus(1, name="medicao_valida")
 
         # Sinais internos
         iniciar_sig = Signal()
         concluido_sig = Signal()
         resultado_sig = Signal(64)
+        ciclos_latencia_sig = Signal(32)      # ATUALIZADO
+        total_operacoes_sig = Signal(32)      # ATUALIZADO
+        medicao_valida_sig = Signal()         # ATUALIZADO
         
         # Sinais para os vetores A e B
         a_sigs = [Signal(32) for _ in range(8)]
         b_sigs = [Signal(32) for _ in range(8)]
 
-        # Conexão dos sinais
+        # Conexão dos sinais - ATUALIZADO
         self.comb += [
             iniciar_sig.eq(self.iniciar.fields.iniciar),
             self.concluido.status.eq(concluido_sig),
-            self.resultado.status.eq(resultado_sig)
+            self.resultado.status.eq(resultado_sig),
+            self.ciclos_latencia.status.eq(ciclos_latencia_sig),          # ATUALIZADO
+            self.total_operacoes.status.eq(total_operacoes_sig),          # ATUALIZADO
+            self.medicao_valida.status.eq(medicao_valida_sig)             # ATUALIZADO
         ]
         
         # Conexão dos vetores A
@@ -77,19 +88,16 @@ class ProdutoEscalar(Module, AutoCSR):
             b_sigs[7].eq(self.vetor_b7.storage),
         ]
 
-        # **CORREÇÃO CRÍTICA: Reset correto**
-        # LiteX usa reset ATIVO ALTO, mas seu módulo espera ATIVO BAIXO
-        # Precisamos inverter o sinal
-        rst_n_sig = Signal()
-        self.comb += rst_n_sig.eq(~ResetSignal())
-
-        # Instância do módulo SystemVerilog
+        # Instância do módulo SystemVerilog COM MEDIÇÃO - ATUALIZADO
         self.specials += Instance("produto_escalar",
             i_clk_i     = ClockSignal(),
             i_rst_i     = ResetSignal(),
             i_iniciar   = iniciar_sig,
             o_concluido = concluido_sig,
             o_resultado = resultado_sig,
+            o_ciclos_latencia = ciclos_latencia_sig,          # ATUALIZADO
+            o_total_operacoes = total_operacoes_sig,          # ATUALIZADO
+            o_medicao_valida = medicao_valida_sig,            # ATUALIZADO
             i_a0 = a_sigs[0], i_a1 = a_sigs[1], i_a2 = a_sigs[2], i_a3 = a_sigs[3],
             i_a4 = a_sigs[4], i_a5 = a_sigs[5], i_a6 = a_sigs[6], i_a7 = a_sigs[7],
             i_b0 = b_sigs[0], i_b1 = b_sigs[1], i_b2 = b_sigs[2], i_b3 = b_sigs[3],

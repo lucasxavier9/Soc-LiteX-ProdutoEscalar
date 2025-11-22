@@ -4,7 +4,7 @@ module tb_produto_escalar;
 
     // Clock
     logic clk = 0;
-    always #5 clk = ~clk; // 100 MHz
+    always #5 clk = ~clk; 
 
     // Reset ativo alto
     logic rst_i;
@@ -13,6 +13,11 @@ module tb_produto_escalar;
     logic iniciar;
     logic concluido;
     logic [63:0] resultado;
+
+    // Sinais de medição de performance 
+    logic [31:0] ciclos_latencia;
+    logic [31:0] total_operacoes;
+    logic medicao_valida;
 
     logic [31:0] a0, a1, a2, a3, a4, a5, a6, a7;
     logic [31:0] b0, b1, b2, b3, b4, b5, b6, b7;
@@ -25,7 +30,11 @@ module tb_produto_escalar;
         .a0(a0), .a1(a1), .a2(a2), .a3(a3), .a4(a4), .a5(a5), .a6(a6), .a7(a7),
         .b0(b0), .b1(b1), .b2(b2), .b3(b3), .b4(b4), .b5(b5), .b6(b6), .b7(b7),
         .concluido(concluido),
-        .resultado(resultado)
+        .resultado(resultado),
+        // CONEXÕES para medição de performance
+        .ciclos_latencia(ciclos_latencia),
+        .total_operacoes(total_operacoes),
+        .medicao_valida(medicao_valida)
     );
 
     // VCD dump
@@ -46,30 +55,39 @@ module tb_produto_escalar;
         #10;
 
         // --- Teste 1: Positivos ---
+        $display("\n=== Teste 1 - Positivos ===");
         a0=1; a1=2; a2=3; a3=4; a4=5; a5=6; a6=7; a7=8;
         b0=1; b1=2; b2=3; b3=4; b4=5; b5=6; b6=7; b7=8;
         iniciar = 1; @(posedge clk); iniciar = 0;
         wait(concluido); @(posedge clk);
-        $display("\n=== Teste 1 - Positivos ===");
         $display("Resultado: %0d | Esperado: %0d", $signed(resultado), 204);
+        if (medicao_valida) begin
+            $display("Latência: %0d ciclos | Operações: %0d", ciclos_latencia, total_operacoes);
+        end
 
         // --- Teste 2: Negativos ---
+        $display("\n=== Teste 2 - Negativos ===");
         rst_i = 1; @(posedge clk); @(posedge clk); rst_i = 0; @(posedge clk);
         a0=-1; a1=-2; a2=-3; a3=-4; a4=-5; a5=-6; a6=-7; a7=-8;
         b0=-1; b1=-2; b2=-3; b3=-4; b4=-5; b5=-6; b6=-7; b7=-8;
         iniciar = 1; @(posedge clk); iniciar = 0;
         wait(concluido); @(posedge clk);
-        $display("\n=== Teste 2 - Negativos ===");
         $display("Resultado: %0d | Esperado: %0d", $signed(resultado), 204);
+        if (medicao_valida) begin
+            $display("Latência: %0d ciclos | Operações: %0d", ciclos_latencia, total_operacoes);
+        end
 
         // --- Teste 3: Opostos ---
+        $display("\n=== Teste 3 - Opostos ===");
         rst_i = 1; @(posedge clk); @(posedge clk); rst_i = 0; @(posedge clk);
         a0=1; a1=2; a2=3; a3=4; a4=5; a5=6; a6=7; a7=8;
         b0=-1; b1=-2; b2=-3; b3=-4; b4=-5; b5=-6; b6=-7; b7=-8;
         iniciar = 1; @(posedge clk); iniciar = 0;
         wait(concluido); @(posedge clk);
-        $display("\n=== Teste 3 - Opostos ===");
         $display("Resultado: %0d | Esperado: %0d", $signed(resultado), -204);
+        if (medicao_valida) begin
+            $display("Latência: %0d ciclos | Operações: %0d", ciclos_latencia, total_operacoes);
+        end
 
         #50;
         $display("\n=== Simulação Concluída ===");
@@ -77,4 +95,3 @@ module tb_produto_escalar;
     end
 
 endmodule
-

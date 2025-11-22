@@ -1,22 +1,26 @@
-// rtl/produto_escalar.sv
-// Produto escalar 8x32bit -> 64bit
-module produto_escalar (
+// rtl/produto_escalar_v1_com_medicao.sv
+module produto_escalar(
     input  logic         clk_i,
     input  logic         rst_i,      
     input  logic         iniciar,      
     input  logic [31:0]  a0, a1, a2, a3, a4, a5, a6, a7,
     input  logic [31:0]  b0, b1, b2, b3, b4, b5, b6, b7,
     output logic [63:0]  resultado,
-    output logic         concluido
-);
+    output logic         concluido,
 
+// Sinais de medição de performance 
+    output logic [31:0] ciclos_latencia,
+    output logic [31:0] total_operacoes,
+    output logic        medicao_valida
+);
+   
     // FSM: Estados
     typedef enum logic [1:0] {
         ESTADO_PARADO     = 2'b00,
         ESTADO_CALCULANDO = 2'b01,
         ESTADO_CONCLUIDO  = 2'b10
     } estado_t;
-
+    
     estado_t estado, estado_proximo;
     logic [2:0] contador, contador_proximo; 
     logic signed [63:0] acumulador, acumulador_proximo;
@@ -48,7 +52,7 @@ module produto_escalar (
         estado_proximo      = estado;
         contador_proximo    = contador;
         acumulador_proximo  = acumulador;
-        resultado_proximo   = resultado; // mantém valor
+        resultado_proximo   = resultado;
 
         case (estado)
             ESTADO_PARADO: begin
@@ -85,7 +89,7 @@ module produto_escalar (
         endcase
     end
 
-    // Registradores
+    // FSM sequencial
     always_ff @(posedge clk_i) begin
         if (rst_i) begin
             estado      <= ESTADO_PARADO;
@@ -98,8 +102,70 @@ module produto_escalar (
             contador    <= contador_proximo;
             acumulador  <= acumulador_proximo;
             resultado   <= resultado_proximo;
-            concluido   <= (estado_proximo == ESTADO_CONCLUIDO);
+            
+            // Sinal de concluído
+            if (estado_proximo == ESTADO_CONCLUIDO) begin
+                concluido <= 1'b1;
+            end else if (iniciar_pulse) begin
+                concluido <= 1'b0;
+            end
         end
     end
+
+// ========== MÓDULO DE MEDIÇÃO DE PERFORMANCE ==========
+    logic [31:0] contador_ciclos;
+    logic [31:0] contador_operacoes;
+    logic medindo;
+    logic concluido_anterior;
+    logic medicao_valida_reg;
+    
+    // Detector de borda de subida do concluido
+    always_ff @(posedge clk_i) begin
+        if (rst_i) concluido_anterior <= 1'b0;
+        else concluido_anterior <= concluido;
+    end
+    
+    wire pulso_concluido = concluido && !concluido_anterior;
+
+// Lógica de medição
+always_ff @(posedge clk_i or posedge rst_i) begin
+    if (rst_i) begin
+        contador_ciclos <= 32'd0;
+        contador_operacoes <= 32'd0;
+        medindo <= 1'b0;
+        ciclos_latencia <= 32'd0;
+        total_operacoes <= 32'd0;
+        medicao_valida_reg <= 1'b0;
+    end else begin
+        // RESET do válido apenas quando iniciar nova medição
+        if (iniciar && !medindo) begin
+            medicao_valida_reg <= 1'b0;
+        end
+        
+        if (iniciar && !medindo) begin
+            // Inicia nova medição
+            medindo <= 1'b1;
+            contador_ciclos <= 32'd0;  
+            contador_operacoes <= 32'd0; 
+        end else if (medindo) begin
+            contador_ciclos <= contador_ciclos + 32'd1;
+            
+            // Conta operações apenas no estado de cálculo
+            if (estado == ESTADO_CALCULANDO) begin
+                contador_operacoes <= contador_operacoes + 32'd1;
+            end
+            
+            if (pulso_concluido) begin
+                // Finaliza medição atual
+                ciclos_latencia <= contador_ciclos;
+                total_operacoes <= contador_operacoes; 
+                medicao_valida_reg <= 1'b1;
+                medindo <= 1'b0;
+            end
+        end
+    end
+end
+
+    assign medicao_valida = medicao_valida_reg;
 
 endmodule
