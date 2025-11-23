@@ -1,4 +1,4 @@
-# litex_wrapper_produto_escalar_v2.py
+# litex_wrapper_produto_escalar_v1.py
 from migen import *
 from litex.gen import *
 from litex.soc.interconnect.csr import *
@@ -37,7 +37,7 @@ class ProdutoEscalar(Module, AutoCSR):
         self.concluido = CSRStatus(1, name="concluido")
         self.resultado = CSRStatus(64, name="resultado")
         
-        # NOVOS CSRs: medição de performance (IGUAL VERSÕES 1 E 3)
+        # NOVOS CSRs: medição de performance 
         self.latency_cycles = CSRStatus(32, name="latency_cycles")
         self.total_operations = CSRStatus(32, name="total_operations")
         self.measurement_valid = CSRStatus(1, name="measurement_valid")
@@ -54,7 +54,7 @@ class ProdutoEscalar(Module, AutoCSR):
         a_sigs = [Signal(32) for _ in range(8)]
         b_sigs = [Signal(32) for _ in range(8)]
 
-        # Conexão dos sinais
+        # Conexão dos sinais de controle e status
         self.comb += [
             iniciar_sig.eq(self.iniciar.fields.iniciar),
             self.concluido.status.eq(concluido_sig),
