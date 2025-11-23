@@ -2,7 +2,7 @@ main.o: main.c \
  /home/z7/Desktop/eda/oss-cad-suite/litex/pythondata-software-picolibc/pythondata_software_picolibc/data/newlib/libc/tinystdio/stdio.h \
  /home/z7/Desktop/eda/oss-cad-suite/litex/pythondata-software-picolibc/pythondata_software_picolibc/data/newlib/libc/include/inttypes.h \
  /home/z7/Desktop/eda/oss-cad-suite/litex/pythondata-software-picolibc/pythondata_software_picolibc/data/newlib/libc/include/newlib.h \
- /home/z7/Desktop/SoC-riscV/pipeline_8multparal/build/colorlight_i5/software/include/../libc/picolibc.h \
+ /home/z7/Desktop/apenasteste/versao3_testes/build/colorlight_i5/software/include/../libc/picolibc.h \
  /home/z7/Desktop/eda/oss-cad-suite/litex/pythondata-software-picolibc/pythondata_software_picolibc/data/newlib/libc/include/sys/config.h \
  /home/z7/Desktop/eda/oss-cad-suite/litex/pythondata-software-picolibc/pythondata_software_picolibc/data/newlib/libc/include/machine/ieeefp.h \
  /home/z7/Desktop/eda/oss-cad-suite/litex/pythondata-software-picolibc/pythondata_software_picolibc/data/newlib/libc/include/sys/features.h \
@@ -28,15 +28,15 @@ main.o: main.c \
  /home/z7/Desktop/eda/oss-cad-suite/litex/litex/litex/soc/cores/cpu/picorv32/irq.h \
  /home/z7/Desktop/eda/oss-cad-suite/litex/litex/litex/soc/software/include/system.h \
  /home/z7/Desktop/eda/oss-cad-suite/litex/litex/litex/soc/cores/cpu/picorv32/system.h \
- /home/z7/Desktop/SoC-riscV/pipeline_8multparal/build/colorlight_i5/software/include/generated/csr.h \
- /home/z7/Desktop/SoC-riscV/pipeline_8multparal/build/colorlight_i5/software/include/generated/soc.h \
+ /home/z7/Desktop/apenasteste/versao3_testes/build/colorlight_i5/software/include/generated/csr.h \
+ /home/z7/Desktop/apenasteste/versao3_testes/build/colorlight_i5/software/include/generated/soc.h \
  /home/z7/Desktop/eda/oss-cad-suite/litex/litex/litex/soc/software/include/hw/common.h \
  /home/z7/Desktop/eda/oss-cad-suite/litex/litex/litex/soc/software/libbase/uart.h \
  /home/z7/Desktop/eda/oss-cad-suite/litex/litex/litex/soc/software/libbase/console.h
 /home/z7/Desktop/eda/oss-cad-suite/litex/pythondata-software-picolibc/pythondata_software_picolibc/data/newlib/libc/tinystdio/stdio.h:
 /home/z7/Desktop/eda/oss-cad-suite/litex/pythondata-software-picolibc/pythondata_software_picolibc/data/newlib/libc/include/inttypes.h:
 /home/z7/Desktop/eda/oss-cad-suite/litex/pythondata-software-picolibc/pythondata_software_picolibc/data/newlib/libc/include/newlib.h:
-/home/z7/Desktop/SoC-riscV/pipeline_8multparal/build/colorlight_i5/software/include/../libc/picolibc.h:
+/home/z7/Desktop/apenasteste/versao3_testes/build/colorlight_i5/software/include/../libc/picolibc.h:
 /home/z7/Desktop/eda/oss-cad-suite/litex/pythondata-software-picolibc/pythondata_software_picolibc/data/newlib/libc/include/sys/config.h:
 /home/z7/Desktop/eda/oss-cad-suite/litex/pythondata-software-picolibc/pythondata_software_picolibc/data/newlib/libc/include/machine/ieeefp.h:
 /home/z7/Desktop/eda/oss-cad-suite/litex/pythondata-software-picolibc/pythondata_software_picolibc/data/newlib/libc/include/sys/features.h:
@@ -62,8 +62,8 @@ main.o: main.c \
 /home/z7/Desktop/eda/oss-cad-suite/litex/litex/litex/soc/cores/cpu/picorv32/irq.h:
 /home/z7/Desktop/eda/oss-cad-suite/litex/litex/litex/soc/software/include/system.h:
 /home/z7/Desktop/eda/oss-cad-suite/litex/litex/litex/soc/cores/cpu/picorv32/system.h:
-/home/z7/Desktop/SoC-riscV/pipeline_8multparal/build/colorlight_i5/software/include/generated/csr.h:
-/home/z7/Desktop/SoC-riscV/pipeline_8multparal/build/colorlight_i5/software/include/generated/soc.h:
+/home/z7/Desktop/apenasteste/versao3_testes/build/colorlight_i5/software/include/generated/csr.h:
+/home/z7/Desktop/apenasteste/versao3_testes/build/colorlight_i5/software/include/generated/soc.h:
 /home/z7/Desktop/eda/oss-cad-suite/litex/litex/litex/soc/software/include/hw/common.h:
 /home/z7/Desktop/eda/oss-cad-suite/litex/litex/litex/soc/software/libbase/uart.h:
 /home/z7/Desktop/eda/oss-cad-suite/litex/litex/litex/soc/software/libbase/console.h:

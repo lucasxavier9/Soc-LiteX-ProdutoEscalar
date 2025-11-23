@@ -12,14 +12,13 @@ static void calc_produto_escalar(void);
 static void reboot(void);
 static void help(void);
 static void prompt(void);
+static void relatorio_completo(void);
 static void debug_csr(void);
 
-
-#ifdef CSR_PRODUTO_ESCALAR_VETOR_A0_ADDR
-#define PRODUTO_ESCALAR_AVAILABLE 1
-#else
-#define PRODUTO_ESCALAR_AVAILABLE 0
-#endif
+// === VARIÁVEIS GLOBAIS ===
+static int32_t vetor_a_global[8] = {0, 0, 0, 0, 0, 0, 0, 0};
+static int32_t vetor_b_global[8] = {0, 0, 0, 0, 0, 0, 0, 0};
+static int vetores_definidos = 0;
 
 static char *readstr(void)
 {
@@ -87,6 +86,7 @@ static void help(void)
     puts("|  reboot                          - Reboot CPU          |");
     puts("|  produto_escalar                 - Faz produto_escalar |");
     puts("|  debug_csr                       - Debug registradores |");
+    puts("|  relatorio_completo              - Relatório completo  |");
     puts("=========================================================");
 }
 
@@ -97,12 +97,6 @@ static void reboot(void)
 
 static void calc_produto_escalar(void)
 {
-#if !PRODUTO_ESCALAR_AVAILABLE
-    printf("ERRO: Módulo produto_escalar não encontrado no SoC!\n");
-    printf("Execute 'debug_csr' para verificar os módulos disponíveis.\n");
-    return;
-#endif
-
     int32_t a[8], b[8];
     char *str, *token;
 
@@ -115,6 +109,7 @@ static void calc_produto_escalar(void)
             return;
         }
         a[i] = atoi(token);
+        vetor_a_global[i] = a[i];
     }
 
     printf("Digite 8 valores de B (separados por espaco): ");
@@ -126,7 +121,10 @@ static void calc_produto_escalar(void)
             return;
         }
         b[i] = atoi(token);
+        vetor_b_global[i] = b[i];
     }
+
+    vetores_definidos = 1;
 
     printf("\nCÁLCULO PRODUTO ESCALAR: \n");
     
@@ -167,22 +165,43 @@ static void calc_produto_escalar(void)
     produto_escalar_iniciar_write(0);
     
     // Espera fixa para pipeline
-    printf("Processando");
-    for(volatile int d = 0; d < 10000; d++) {
-        if (d % 2000 == 0) printf(".");
-    }
-    printf(" Concluído!\n\n");
-    
-    // Lê o resultado do hardware
-    uint32_t resultado_hw = produto_escalar_resultado_read();
-    
-    printf("Resultado Hardware: %ld (0x%08lx)\n", 
-           (long)(int32_t)resultado_hw, (unsigned long)resultado_hw);
 
+    // Aguarda processamento
+    printf("Processando");
+    int concluido_flag = 0;
+    int measurement_valid_flag = 0;
+    int max_wait = 50;
+
+    for(int i = 0; i < max_wait; i++) {
+        for(volatile int d = 0; d < 1000; d++);
+
+        if (produto_escalar_concluido_read()) {
+            concluido_flag = 1;
+            break;
+        }
+        // Fallback: se measurement_valid ficar ativo, também consideramos concluído
+        if (produto_escalar_measurement_valid_read()) {
+            measurement_valid_flag = 1;
+            break;
+        }
+        if (i % 5 == 0) printf(".");
+    }
+
+    if (concluido_flag) {
+        printf(" Concluído!\n");
+    } else if (measurement_valid_flag) {
+        printf(" Concluído (via measurement_valid)!\n");
+    } else {
+        printf(" TIMEOUT! Continuando...\n");
+    }
+    
     // LEITURA E CONVERSÃO CORRETA
     uint32_t resultado_raw = produto_escalar_resultado_read();
     int32_t resultado_signed = (int32_t)resultado_raw;  // Conversão para signed
     
+    printf("Resultado Hardware: %ld (0x%08lx)\n", 
+           (long)resultado_signed, (unsigned long)resultado_raw);
+
     // Verificação por software
     int32_t verif = 0;
     printf("Verificação (software): ");
@@ -197,41 +216,212 @@ static void calc_produto_escalar(void)
     if(verif == resultado_signed) {
         printf("SUCESSO! Hardware e software coincidem!");
     } else {
-        printf("ERRO! Resultados diferentes!\n");
+        printf("ERRO! Resultados diferentes!");
         printf("   Hardware: %ld, Software: %ld\n", (long)resultado_signed, (long)verif);
     }
     
     printf("\n");
 }
 
+// FUNÇÃO RELATÓRIO COMPLETO VERSÃO 3 - MESMO MÉTODO DAS VERSÕES 1 E 2
+static void relatorio_completo(void) {
+    printf("\n");
+    printf("=========================================================\n");
+    printf("|              RELATÓRIO COMPLETO - VERSÃO 3            |\n");
+    printf("=========================================================\n");
+    printf("|              ARQUITETURA: PIPELINE REGISTRADO         |\n");
+    printf("=========================================================\n");
+    
+    if (!vetores_definidos) {
+        printf("\n AVISO: Execute 'produto_escalar' primeiro para definir os vetores!\n");
+        printf("Relatório não pode ser gerado sem dados de entrada.\n");
+        printf("\n=========================================================\n");
+        printf("|               RELATÓRIO CANCELADO                     |\n");
+        printf("=========================================================\n");
+        return;
+    }
+    
+    // 1. EXECUTA O PRODUTO ESCALAR COM OS VETORES GLOBAIS
+    printf("\n--- EXECUÇÃO DO PRODUTO ESCALAR ---\n");
+    
+    printf("Vetor A: ");
+    for(int i = 0; i < 8; i++) printf("%ld ", (long)vetor_a_global[i]);
+    printf("\nVetor B: ");
+    for(int i = 0; i < 8; i++) printf("%ld ", (long)vetor_b_global[i]);
+    printf("\n");
+    
+    // Escreve vetores nos registradores
+    produto_escalar_vetor_a0_write(vetor_a_global[0]);
+    produto_escalar_vetor_a1_write(vetor_a_global[1]);
+    produto_escalar_vetor_a2_write(vetor_a_global[2]);
+    produto_escalar_vetor_a3_write(vetor_a_global[3]);
+    produto_escalar_vetor_a4_write(vetor_a_global[4]);
+    produto_escalar_vetor_a5_write(vetor_a_global[5]);
+    produto_escalar_vetor_a6_write(vetor_a_global[6]);
+    produto_escalar_vetor_a7_write(vetor_a_global[7]);
+
+    produto_escalar_vetor_b0_write(vetor_b_global[0]);
+    produto_escalar_vetor_b1_write(vetor_b_global[1]);
+    produto_escalar_vetor_b2_write(vetor_b_global[2]);
+    produto_escalar_vetor_b3_write(vetor_b_global[3]);
+    produto_escalar_vetor_b4_write(vetor_b_global[4]);
+    produto_escalar_vetor_b5_write(vetor_b_global[5]);
+    produto_escalar_vetor_b6_write(vetor_b_global[6]);
+    produto_escalar_vetor_b7_write(vetor_b_global[7]);
+    
+    // Reseta medições anteriores
+    produto_escalar_iniciar_write(0);
+    for(volatile int d = 0; d < 1000; d++);
+    
+    // Lê valores ANTES da execução
+    uint32_t latency_before = produto_escalar_latency_cycles_read();
+    uint32_t total_ops_before = produto_escalar_total_operations_read();
+    
+    printf("Estado antes: latency=%ld, ops=%ld\n", 
+           (long)latency_before, (long)total_ops_before);
+    
+// Executa operação
+    produto_escalar_iniciar_write(1);
+    for(volatile int d = 0; d < 100; d++);
+    produto_escalar_iniciar_write(0);
+    
+    // Aguarda processamento - VERSÃO OTIMIZADA
+    printf("Processando");
+    int concluido_flag = 0;
+    int measurement_valid_flag = 0;
+
+    // ESPERA MAIS INTELIGENTE - Verifica ambos os sinais
+    for(int i = 0; i < 8; i++) {  // Reduzido para 8 iterações
+        for(volatile int d = 0; d < 1000; d++); // Delay mínimo
+        
+        // Verifica tanto 'concluido' quanto 'measurement_valid'
+        if (produto_escalar_concluido_read() || produto_escalar_measurement_valid_read()) {
+            concluido_flag = 1;
+            measurement_valid_flag = produto_escalar_measurement_valid_read();
+            break;
+        }
+        printf(".");
+    }
+
+    if (concluido_flag) {
+        if (measurement_valid_flag) {
+            printf(" Concluído (via measurement_valid)!\n");
+        } else {
+            printf(" Concluído!\n");
+        }
+    } else {
+        printf(" TIMEOUT! Continuando...\n");
+    }
+    // Pequena pausa para garantir medição
+    for(volatile int d = 0; d < 10000; d++);
+    
+    // Lê resultados APÓS execução
+    uint32_t resultado_hw = produto_escalar_resultado_read();
+    uint32_t latency_after = produto_escalar_latency_cycles_read();
+    uint32_t total_ops_after = produto_escalar_total_operations_read();
+    uint32_t measurement_valid = produto_escalar_measurement_valid_read();
+    
+    // 2. MEDIÇÕES DE PERFORMANCE - MESMO MÉTODO SIMPLES DAS VERSÕES 1 E 2
+    printf("\n--- MEDIÇÕES DE PERFORMANCE ---\n");
+    
+    uint32_t clock_freq = 60; // MHz - FIXO COMO NAS VERSÕES 1 E 2
+    
+    printf("Resultado: %ld\n", (long)resultado_hw);
+    printf("Latência medida: %ld ciclos\n", (long)latency_after);
+    printf("Operações totais: %ld\n", (long)total_ops_after);
+    printf("Medição válida: %s\n", measurement_valid ? "SIM" : "NÃO");
+    
+    // SÓ CALCULA SE MEDIÇÃO FOR VÁLIDA - MESMO CÁLCULO SIMPLES
+    if (measurement_valid && latency_after > 0 && total_ops_after > 0) {
+        uint32_t throughput_mops = (total_ops_after * clock_freq) / latency_after;
+        uint32_t time_total = (latency_after * 1000) / clock_freq;
+        
+        uint32_t time_per_op_x10 = (latency_after * 10000) / (clock_freq * total_ops_after);
+        uint32_t time_per_op_int = time_per_op_x10 / 10;
+        uint32_t time_per_op_frac = time_per_op_x10 % 10;
+        
+        uint32_t efficiency_x100 = (throughput_mops * 100) / clock_freq;
+        
+        printf("Throughput medido: %ld MOPS\n", (long)throughput_mops);
+        printf("Eficiência: %ld.%02ld MOPS/MHz\n", 
+               efficiency_x100 / 100, efficiency_x100 % 100);
+        printf("Tempo total: %ld ns\n", (long)time_total);
+        printf("Tempo por operação: %ld.%ld ns\n", (long)time_per_op_int, (long)time_per_op_frac);
+        
+    } else {
+        printf(" DADOS DE MEDIÇÃO INVÁLIDOS - RELATÓRIO INCOMPLETO\n");
+        return;
+    }
+    
+    // VERIFICAÇÃO
+    printf("\n--- VERIFICAÇÃO ---\n");
+    
+    int32_t verif = 0;
+    for(int i = 0; i < 8; i++) {
+        verif += vetor_a_global[i] * vetor_b_global[i];
+    }
+    
+    printf("Resultado esperado: %ld\n", (long)verif);
+    printf("Resultado obtido: %ld\n", (long)resultado_hw);
+    printf("Status: %s\n", (resultado_hw == verif) ? "CORRETO" : "ERRO");
+    
+    // RESUMO PARA TCC 
+    printf("\n--- RESUMO PARA TCC ---\n");
+    printf("Arquitetura: Pipeline Registrado (Versão 3)\n");
+    printf("Clock: %ld MHz\n", (long)clock_freq);
+    printf("Latência medida: %ld ciclos\n", (long)latency_after);
+    
+    uint32_t throughput_mops = (total_ops_after * clock_freq) / latency_after;
+    uint32_t efficiency_x100 = (throughput_mops * 100) / clock_freq;
+    
+    printf("Throughput real: %ld MOPS\n", (long)throughput_mops);
+    printf("Eficiência real: %ld.%02ld MOPS/MHz\n", 
+           efficiency_x100 / 100, efficiency_x100 % 100);
+    
+    uint32_t ideal_throughput = clock_freq;
+    uint32_t performance_percent = (throughput_mops * 100) / ideal_throughput;
+    printf("Throughput ideal: %ld MOPS (1 op/ciclo)\n", (long)ideal_throughput);
+    printf("Performance: %ld%% do throughput ideal\n", (long)performance_percent);
+    
+    printf("\n=========================================================\n");
+    printf("|               RELATÓRIO CONCLUÍDO                     |\n");
+    printf("=========================================================\n");
+}
+
 static void debug_csr(void) {
     printf("=== DEBUG CSR ===\n");
     
-#if PRODUTO_ESCALAR_AVAILABLE
-    printf("Módulo produto_escalar encontrado!\n\n");
-    
-    // Lê e mostra os valores dos registradores
-    printf("Entradas do vetor A:\n");
-    printf("  a0: %ld\n", (long)produto_escalar_vetor_a0_read());
-    printf("  a1: %ld\n", (long)produto_escalar_vetor_a1_read());
-    printf("  a2: %ld\n", (long)produto_escalar_vetor_a2_read());
-    printf("  a3: %ld\n", (long)produto_escalar_vetor_a3_read());
-    
-    printf("\nStatus do hardware:\n");
-    printf("  iniciar: %ld\n", (long)produto_escalar_iniciar_read());
-    printf("  concluido: %ld\n", (long)produto_escalar_concluido_read());
-    printf("  resultado: %ld\n", (long)produto_escalar_resultado_read());
-    
-    // Testa se consegue escrever e ler um registrador
-    printf("\nTeste de comunicação:\n");
-    produto_escalar_vetor_a0_write(0x12345678);
-    uint32_t valor_lido = produto_escalar_vetor_a0_read();
-    printf("  Escrito: 0x12345678, Lido: 0x%08lx\n", (unsigned long)valor_lido);
-    
+    // Verifica quais CSRs existem
+#ifdef CSR_PRODUTO_ESCALAR_LATENCY_CYCLES_ADDR
+    printf("LATENCY_CYCLES_ADDR definido: 0x%08lx\n", (unsigned long)CSR_PRODUTO_ESCALAR_LATENCY_CYCLES_ADDR);
 #else
-    printf("Módulo produto_escalar NÃO encontrado!\n");
-    printf("Verifique a configuração do hardware.\n");
+    printf("LATENCY_CYCLES_ADDR NÃO definido\n");
 #endif
+
+#ifdef CSR_PRODUTO_ESCALAR_TOTAL_OPERATIONS_ADDR
+    printf("TOTAL_OPERATIONS_ADDR definido: 0x%08lx\n", (unsigned long)CSR_PRODUTO_ESCALAR_TOTAL_OPERATIONS_ADDR);
+#else
+    printf("TOTAL_OPERATIONS_ADDR NÃO definido\n");
+#endif
+
+#ifdef CSR_PRODUTO_ESCALAR_MEASUREMENT_VALID_ADDR
+    printf("MEASUREMENT_VALID_ADDR definido: 0x%08lx\n", (unsigned long)CSR_PRODUTO_ESCALAR_MEASUREMENT_VALID_ADDR);
+#else
+    printf("MEASUREMENT_VALID_ADDR NÃO definido\n");
+#endif
+
+    // Testa leitura múltipla
+    printf("Teste leitura múltipla:\n");
+    for(int i = 0; i < 4; i++) {
+        uint32_t val = produto_escalar_resultado_read();
+        printf("  Leitura %d: 0x%08lx (%lu)\n", i, (unsigned long)val, (unsigned long)val);
+    }
+    
+    // Testa leitura das CSRs de medição
+    printf("Leitura CSRs de medição:\n");
+    printf("  latency_cycles: 0x%08lx\n", (unsigned long)produto_escalar_latency_cycles_read());
+    printf("  total_operations: 0x%08lx\n", (unsigned long)produto_escalar_total_operations_read());
+    printf("  measurement_valid: 0x%08lx\n", (unsigned long)produto_escalar_measurement_valid_read());
 }
 
 static void console_service(void) {
@@ -249,6 +439,8 @@ static void console_service(void) {
         calc_produto_escalar();
     else if(strcmp(token, "debug_csr") == 0)
         debug_csr();
+    else if(strcmp(token, "relatorio_completo") == 0)
+        relatorio_completo();   
     else
         printf("Comando desconhecido: %s\n", token);
     prompt();
@@ -264,11 +456,8 @@ int main(void) {
     printf("\n");
     printf("=========================================================\n");
     printf("|               RISC-V com Produto Escalar               |\n");
-//#if PRODUTO_ESCALAR_AVAILABLE
-//    printf("|                   HARDWARE DETECTADO                    |\n");
-//#else
-//    printf("|                 HARDWARE NÃO DETECTADO                |\n");
-//#endif
+    printf("=========================================================\n");
+    printf("|              ARQUITETURA: PIPELINE REGISTRADO         |\n");
     printf("=========================================================\n");
     
     help();
