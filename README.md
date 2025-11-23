@@ -1,6 +1,6 @@
 # Acelerador de Produto Escalar para SoC LiteX na FPGA
 
-Este projeto implementa um System-on-Chip (SoC) baseado em LiteX para a FPGA Colorlight i5, contendo um processador RISC-V e um acelerador de hardware dedicado ao cálculo de produto escalar, o processador se comunica com o acelerador por meio de registradores CSR (Control and Status Register), realizando controle e leitura de resultados via mapeamento de memória.
+Este projeto implementa um System-on-Chip (SoC) baseado em LiteX para a FPGA Colorlight i5, com um processador RISC-V e três arquiteturas de aceleradores de produto escalar. A CPU se comunica com os aceleradores via registradores CSR (Control and Status Register), controlando a execução e lendo resultados através do mapeamento de memória.
 
 O repositório cobre o fluxo completo:
 - Design do acelerador em SystemVerilog;
@@ -11,7 +11,17 @@ O repositório cobre o fluxo completo:
 
 ## Arquitetura do Projeto
 
-O projeto está organizado nos seguintes diretórios principais:
+### Arquiteturas Implementadas
+
+O projeto agora contempla **três tipos de arquitetura para o acelerador de produto escalar**:
+
+1. **FSM Sequencial**: A operação é controlada por uma máquina de estados finita (FSM), processando um elemento por ciclo de clock.
+2. **Pipeline_FSM**: Combina estágios pipeline com FSM para controle preciso, usando sinais de validação por estágio.
+3. **Pipeline_registrado**: Pipeline puramente registrado onde sinais de validação se propagam automaticamente entre estágios.
+
+### Organização do Projeto
+
+Cada projeto está organizado com os seguintes diretórios principais:
 
 -   `rtl/`: Contém o código-fonte do acelerador de produto escalar em SystemVerilog.
 -   `tb/`: Inclui o testbench para a verificação funcional do acelerador.
@@ -48,6 +58,24 @@ O firmware inclui validação cruzada automática: após o cálculo em hardware,
 | `b0..b7`      | entrada  | 32 bits  | Vetor de entrada B                     |
 | `resultado`   | saída    | 64 bits  | Resultado do produto escalar           |
 | `concluido`      | saída    | 1 bit    | Indica fim da operação              |
+| `ciclos_latencia` | saída | 32 bits | Ciclos de latência medidos |
+| `total_operacoes` | saída | 32 bits | Total de operações realizadas |
+| `medicao_valida` | saída | 1 bit | Medições válidas |
+
+---
+
+## Resultados e Análise
+
+### Métricas de Performance
+- **Throughput**: (MOPS)
+- **Eficiência**: MOPS por MHz de clock  
+- **Latência**: Tempo para primeiro resultado
+- **Área**: Recursos de FPGA utilizados
+
+## Casos de Uso por Arquitetura
+- **FSM Sequencial**: Aplicações com restrição de área/potência
+- **Pipeline**: Aplicações que exigem alto throughput
+- **Paralela**: Aplicações críticas de performance
 
 ---
 
