@@ -67,10 +67,10 @@ O firmware inclui validação cruzada automática: após o cálculo em hardware,
 ## Resultados e Análise
 
 ### Métricas de Performance
-- **Throughput**: Operações concluídas por segundo
-- **Eficiência**: ( Throughput real / Frequência do clock ) Unidade: MOPS/MHz - Indica o IPC médio real da arquitetura
-- **Latência**: Tempo para primeiro resultado
-- **Área**: Recursos de FPGA utilizados
+- **Throughput**: Número de operações concluídas por segundo - MOPS
+- **Eficiência**: ( Throughput real / Frequência do clock ) Unidade: OPC - Operações por ciclo
+- **Latência**: Tempo necessário até a obtenção do primeiro resultado.
+- **Área**: Quantidade de recursos de FPGA utilizados (LUTs, FFs, DSPs, BRAMs)
 
 ## Casos de Uso por Arquitetura
 - **FSM Sequencial**: Aplicações com restrição de área/potência
