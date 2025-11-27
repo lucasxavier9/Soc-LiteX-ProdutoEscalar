@@ -67,7 +67,7 @@ O firmware inclui validação cruzada automática: após o cálculo em hardware,
 ## Resultados e Análise
 
 ### Métricas de Performance
-- **Throughput**: Número de operações concluídas por segundo - MOPS
+- **Throughput**: Número de operações concluídas por segundo - MOPS (operações por ciclo ) x Frequência do clock
 - **Eficiência**: ( Throughput real / Frequência do clock ) Unidade: OPC - Operações por ciclo
 - **Latência**: Tempo necessário até a obtenção do primeiro resultado.
 - **Área**: Quantidade de recursos de FPGA utilizados (LUTs, FFs, DSPs, BRAMs)
