@@ -41,7 +41,7 @@ resultado = \sum_{i=0}^{7} A[i] \times B[i]
 $$
 
 
-O resultado é um inteiro de 64 bits com sinal, computado inteiramente em hardware em apenas 8 ciclos de clock. A CPU carrega os vetores via CSRs, dispara o cálculo com um pulso de `iniciar`, aguarda o sinal `concluido`, e lê o resultado - tudo via mapeamento de memória.
+O resultado é um inteiro de 64 bits com sinal, computado inteiramente em hardware em alguns ciclos de clock. A CPU carrega os vetores via CSRs, dispara o cálculo com um pulso de `iniciar`, aguarda o sinal `concluido`, e lê o resultado - tudo via mapeamento de memória.
 
 O firmware inclui validação cruzada automática: após o cálculo em hardware, ele repete a operação em software e compara os resultados, garantindo correção funcional.
 
