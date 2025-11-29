@@ -134,7 +134,7 @@ O script `litex/colorlight_i5.py` gera e sintetiza o SoC que inclui o acelerador
 Para gerar o bitstream:
 
 ```bash
-python3 litex/colorlight_i5.py --board i9 --revision 7.2 --build --cpu-type picorv32
+$(which python3) litex/colorlight_i5.py --board i9 --revision 7.2 --build --cpu-type picorv32
 ```
 
 O bitstream resultante será salvo em:
@@ -150,16 +150,8 @@ build/colorlight_i5/gateware/colorlight_i5.bit
 Para programar a FPGA Colorlight i5 com o bitstream gerado:
 
 ```bash
-which openFPGALoader #para descobrir o caminho
+$(which openFPGALoader) -b colorlight-i5 build/colorlight_i5/gateware/colorlight_i5.bit
 ```
-
-```bash
-/caminho/do/openFPGALoader -b colorlight-i5 build/colorlight_i5/gateware/colorlight_i5.bit
-```
-
-(O caminho do `openFPGALoader` deve apontar para o executável dentro da sua instalação do OSS CAD Suite.)
-
----
 
 ## Execução do Firmware
 
