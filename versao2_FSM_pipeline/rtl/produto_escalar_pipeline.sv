@@ -188,10 +188,14 @@ module produto_escalar_pipeline(
             if (iniciar_pulse && !measuring) begin
                 measuring            <= 1'b1;
                 contador_ciclos_med  <= 32'd1;
-                contador_ops         <= 32'd8;
+                contador_ops         <= 32'd0;
             end 
             else if (measuring) begin
                 contador_ciclos_med <= contador_ciclos_med + 32'd1;
+
+            if (estagio2_valido) begin
+                contador_ops <= contador_ops + $size(produtos_reg);
+            end
             
                 if (concluido_pulse) begin
                     latency_cycles     <= contador_ciclos_med;
